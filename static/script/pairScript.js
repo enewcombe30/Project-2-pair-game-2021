@@ -231,13 +231,16 @@ hardCards.forEach(card => card.addEventListener('click', flipCard));
 // Victory function with display score (remaining time x 100) 
 // forEach if lockboard === true get timer value and post in modal $[timer:VALUE]
 
-function Victory() {
+/*function Victory() {
 
-    if (hasFlippedCard = true,
-        lockBoard = true);
-    
-       console.log("victory");
-}
+    if (forEach(cards) === true);
+
+        stopTimer();
+
+    gameEnd.classList.remove("hide");
+    gameEnd.innerHTML = "congratulations!! your score is " + sec * 100;
+}*/
+
 
 
 /*stopwatch timer sourced  https://dev.to/gspteck/create-a-stopwatch-in-javascript-2mak */
@@ -298,11 +301,12 @@ function resetTimer() {
 
 }
 
-// const gameEnd = document.getElementById("game-end");
+const gameEnd = document.getElementById("end-bar");
+const score = document.getElementById("score");
 
 // gameEnd.addEventListener('click', resetTimer);
 
-/*function victory() {
+function victory() {
 
     if (forEachhasFlippedCard = true,
            lockBoard = true)
@@ -310,5 +314,5 @@ function resetTimer() {
     stopTimer();
 
     gameEnd.classList.remove("hide");
-    gameEnd.innerHTML = "congratulations!! your score is " + sec * 100;
-}*/
+    score.innerHTML = "congratulations!! your score is " + sec * 100;
+}
