@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="static/styles/pairStyles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <wrapper>
+        <div class="background">
+
+            <!-- Home game control bar -->
+
+            <div class="home-control-bar" id="home-control-bar">
+                <h1>Match the Pairs</h1>
+                <div class="container game-controls">
+                    <div class="controls">
+                        <div class="row">
+                            <!--For each button modal https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal&stacked=h -->
+                            <div class="col-sm-3"></div>
+                            <button class="col-sm-6" id="start-btn" onclick="startButton()">Start!</button>
+                            <div class="col-sm-3"></div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <button class="col-sm-3" id="option-btn" onclick="optionFunction()">Options</button>
+                            <div class="col-sm-2"></div>
+                            <button class="col-sm-3" id="how-btn">How To</button>
+                            <div id="how-modal" class="modal">
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <h2>Rules of the game</h2>
+                                    <p>The aim of the game is to match the pictures as quickly as possible!</p>
+                                    <p>Match all pairs in the given time to receive your score!</p>
+                                    <h2>Getting started</h2>
+                                    <p>Click the start button to choose your preferred difficulty.<p>
+                                    <p>Easy - 8 cards, 4 pairs</p>
+                                    <p>Medium - 12 cards, 6 pairs</p>
+                                    <p>Hard - 20 cards, 10 pairs</p>
+                                    <p>When you're ready press go!</p>
+                                    <p>Click on the cards to reveal the image.</p>
+                                    <p>When you match to images the cards will lock!</p>
+                                    <p>Match all the pairs to win the game!!</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option control bar -->
+
+            <div class="option-control-bar hide" id="option-control-bar">
+                <h1>Options <button class="option-close" id="option-close" onclick="optionFunction()">&times;</button></h1>
+                <br />
+                <br />
+                <div class="option-controls">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <button class="col-sm-3" id="music-btn">Music On/Off</button>
+                        <!-- music needs to be added with on/off toggle -->
+                        <div class="col-sm-2"></div>
+                        <button class="col-sm-3" id="SFX-btn">SFX On/Off</button>
+                        <!-- SFX need to be added with on/off toggle -->
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Difficulty pop-up Div-->
+
+            <div class="diff-control-bar hide" id="diff-container">
+                <p><h1>Choose Your Difficulty <button id="diff-close" onclick="homeFunction()">&times;</button></h1></p>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <button class="col-sm-2 set-diff" id="easy-btn" onclick="playEasy()">Easy</button>
+                    <div class="col-sm-1"></div>
+                    <button class="col-sm-2 set-diff" id="med-btn" onclick="playMed()">Medium</button>
+                    <div class="col-sm-1"></div>
+                    <button class="col-sm-2 set-diff" id="hard-btn" onclick="playHard()">Hard</button>
+                    <div class="col-sm-2"></div>
+                </div>
+                <br />
+            </div>
+            <br />
+
+            <!-- Game container -->
+
+            <div class="game-container hide" id="game-container">
+                <div class="game-control-bar">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <button class="col-sm-2" id="home-btn" onclick="homeFunction()">Home</button>
+                        <div class="col-sm-1"></div>
+                        <button class="col-sm-2" id="reset-btn">Restart</button>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-3" id="timer">01:00</div> <!-- Timer countdown to be added with score modal presented -->
+                        <div class="col-sm-1"></div>
+                    </div>
+                </div>
+                <div class="game-start-bar">
+                    <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4"><span>Are you ready?</span></div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5"></div>
+                        <button class="col-sm-2">Go!!</button>
+                        <div class="col-sm-5"></div>
+                    </div>
+                </div>
+
+                <!-- Easy difficulty game -->
+                <div class="memory-game-easy hide" id="memory-game-easy">
+                    <div class="memory-card-easy card" data-framework="tikiAngry">
+                        <img class="front-face" src="static/images/Game-images/tikiAngry.png" alt="tikiAngry" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-easy card" data-framework="tikiAngry">
+                        <img class="front-face" src="static/images/Game-images/tikiAngry.png" alt="tikiAngry" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-easy card" data-framework="tikiBand">
+                        <img class="front-face" src="static/images/Game-images/tikiBand.png" alt="tikiBand" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-easy card" data-framework="tikiBand">
+                        <img class="front-face" src="static/images/Game-images/tikiBand.png" alt="tikiBand" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-easy card" data-framework="tikiBlue">
+                        <img class="front-face" src="static/images/Game-images/tikiBlue.png" alt="tikiBlue" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-easy card" data-framework="tikiBlue">
+                        <img class="front-face" src="static/images/Game-images/tikiBlue.png" alt="tikiBlue" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-easy card" data-framework="tikiPurp">
+                        <img class="front-face" src="static/images/Game-images/tikiPurp.png" alt="tikiPurp" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-easy card" data-framework="tikiPurp">
+                        <img class="front-face" src="static/images/Game-images/tikiPurp.png" alt="tikiPurp" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                </div>
+
+                <!-- Medium difficulty game -->
+
+                <div class="memory-game-medium hide" id="memory-game-medium">
+                    <div class="memory-card-medium card" data-framework="tikiAngry">
+                        <img class="front-face" src="static/images/Game-images/tikiAngry.png" alt="tikiAngry" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-medium card" data-framework="tikiAngry">
+                        <img class="front-face" src="static/images/Game-images/tikiAngry.png" alt="tikiAngry" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-medium card" data-framework="tikiBand">
+                        <img class="front-face" src="static/images/Game-images/tikiBand.png" alt="tikiBand" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-medium card" data-framework="tikiBand">
+                        <img class="front-face" src="static/images/Game-images/tikiBand.png" alt="tikiBand" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-medium card" data-framework="tikiBlue">
+                        <img class="front-face" src="static/images/Game-images/tikiBlue.png" alt="tikiBlue" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-medium card" data-framework="tikiBlue">
+                        <img class="front-face" src="static/images/Game-images/tikiBlue.png" alt="tikiBlue" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-medium card" data-framework="tikiPurp">
+                        <img class="front-face" src="static/images/Game-images/tikiPurp.png" alt="tikiPurp" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-medium card" data-framework="tikiPurp">
+                        <img class="front-face" src="static/images/Game-images/tikiPurp.png" alt="tikiPurp" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-medium card" data-framework="tikiSmoke">
+                        <img class="front-face" src="static/images/Game-images/tikiSmoke.png" alt="tikiSmoke" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-medium card" data-framework="tikiSmoke">
+                        <img class="front-face" src="static/images/Game-images/tikiSmoke.png" alt="tikiSmoke" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-medium card" data-framework="tikiVJS">
+                        <img class="front-face" src="static/images/Game-images/tikiVJS.png" alt="tikiVJS" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-medium card" data-framework="tikiVJS">
+                        <img class="front-face" src="static/images/Game-images/tikiVJS.png" alt="tikiVJS" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                </div>
+
+                <!-- Hard difficulty game-->
+
+                <div class="memory-game-hard hide" id="memory-game-hard">
+                    <div class="memory-card-hard card" data-framework="tikiAngry">
+                        <img class="front-face" src="static/images/Game-images/tikiAngry.png" alt="tikiAngry" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiAngry">
+                        <img class="front-face" src="static/images/Game-images/tikiAngry.png" alt="tikiAngry" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiBand">
+                        <img class="front-face" src="static/images/Game-images/tikiBand.png" alt="tikiBand" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiBand">
+                        <img class="front-face" src="static/images/Game-images/tikiBand.png" alt="tikiBand" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiBlue">
+                        <img class="front-face" src="static/images/Game-images/tikiBlue.png" alt="tikiBlue" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiBlue">
+                        <img class="front-face" src="static/images/Game-images/tikiBlue.png" alt="tikiBlue" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiPurp">
+                        <img class="front-face" src="static/images/Game-images/tikiPurp.png" alt="tikiPurp" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiPurp">
+                        <img class="front-face" src="static/images/Game-images/tikiPurp.png" alt="tikiPurp" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiSmoke">
+                        <img class="front-face" src="static/images/Game-images/tikiSmoke.png" alt="tikiSmoke" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiSmoke">
+                        <img class="front-face" src="static/images/Game-images/tikiSmoke.png" alt="tikiSmoke" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiVJS">
+                        <img class="front-face" src="static/images/Game-images/tikiVJS.png" alt="tikiVJS" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiVJS">
+                        <img class="front-face" src="static/images/Game-images/tikiVJS.png" alt="tikiVJS" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiNeon">
+                        <img class="front-face" src="static/images/Game-images/tikiNeon.jpg" alt="tikiNeon" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiNeon">
+                        <img class="front-face" src="static/images/Game-images/tikiNeon.jpg" alt="tikiNeon" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiTeeth">
+                        <img class="front-face" src="static/images/Game-images/tikiTeeth.jpg" alt="tikiTeeth" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiTeeth">
+                        <img class="front-face" src="static/images/Game-images/tikiTeeth.jpg" alt="tikiTeeth" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiWhisker">
+                        <img class="front-face" src="static/images/Game-images/tikiWhisker.jpg" alt="tikiWhisker" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiWhisker">
+                        <img class="front-face" src="static/images/Game-images/tikiWhisker.jpg" alt="tikiWhisker" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiSeagull">
+                        <img class="front-face" src="static/images/Game-images/tikiSeagull.jpg" alt="tikiSeagull" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+                    <div class="memory-card-hard card" data-framework="tikiSeagull">
+                        <img class="front-face" src="static/images/Game-images/tikiSeagull.jpg" alt="tikiSeagull" />
+                        <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
+                    </div>
+
+
+                </div>
+                <!--Add Restart container with button pop-up when game complete // default set to "hide"-->
+            </div>
+
+        </div>
+        <footer>
+            <div class="footer">
+                &copy <em>VoodooJava.Co.Uk</em> 2021
+            </div>
+        </footer>
+    </wrapper>
+    <script src="static/script/pairScript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>

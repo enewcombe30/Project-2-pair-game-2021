@@ -1,0 +1,322 @@
+html{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    width: 100vh;
+    display: flow;
+    
+}
+wrapper {
+    position: fixed;
+    
+}
+.background {
+    background-image: url('../images/Game-images/leaves.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    perspective: 2000px;
+}
+                                                            /* Breakpoints set for cards and divs */
+/* --------------- Game control div CSS ------------ */
+
+.home-control-bar {
+    width: 80vw;
+    height: 45vh;
+    top: 30vh;
+    left: 10vw;
+    position: absolute;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    align-self: center;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    box-shadow: rgba(0,0,0,0.4) 5px 5px 5px 5px;
+    border-radius: 25px;
+    background-image: linear-gradient(135deg, #393939, #090909);
+    color: cornsilk;
+}
+
+.option-control-bar {
+    width: 80vw;
+    height: 45vh;
+    z-index: 1000;
+    top: 30vh;
+    left: 10vw;
+    position: absolute;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    align-self: center;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    box-shadow: rgba(0,0,0,0.4) 5px 5px 5px 5px;
+    border-radius: 25px;
+    background-image: linear-gradient(135deg, #393939, #090909);
+    color: cornsilk;
+}
+
+.option-close {
+    color: #aaaaaa;
+    position: absolute;
+    top: 3vh;
+    right: 3vw;
+    border-radius: 15%;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.diff-control-bar {
+    width: 80vw;
+    height: 45vh;
+    z-index: 1000;
+    top: 30vh;
+    left: 10vw;
+    position: absolute;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    align-self: center;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    box-shadow: rgba(0,0,0,0.4) 5px 5px 5px 5px;
+    border-radius: 25px;
+    background-image: linear-gradient(135deg, #393939, #090909);
+    color: cornsilk;
+}
+
+#diff-close {
+    color: #aaaaaa;
+    position: absolute;
+    top: 3vh;
+    right: 3vw;
+    border-radius: 15%;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.game-start-bar {
+    width: 80vw;
+    height: 45vh;
+    z-index: 2000;
+    top: 30vh;
+    left: 10vw;
+    position: absolute;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    align-self: center;
+    text-align: center;
+    font-weight: 5vh;
+    border: none;
+    box-shadow: rgba(0,0,0,0.4) 5px 5px 5px 5px;
+    border-radius: 25px;
+    background-image: linear-gradient(135deg, #393939, #090909);
+    color: cornsilk;
+}
+
+.option-close:hover,
+.option-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.game-controls{
+    padding-top:3vh;
+}
+.row {
+    margin:3vh;
+}
+button {
+    padding: 2vh 1vw 2vh 1vw;
+    box-sizing: border-box;
+    border-spacing: 2vw;
+    background-image: linear-gradient(135deg, #393939, #090909);
+    color: cornsilk;
+    font-weight: bold;
+    font-size: xx-large;
+    border: none;
+    box-shadow: rgba(0,0,0,0.4) 5px 5px 5px 5px;
+}
+button:hover,
+button:focus {
+    color: #ccc9c9;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.timer {
+    padding: 2vh 1vw 2vh 1vw;
+    box-sizing: border-box;
+    border-spacing: 2vw;
+    background-image: linear-gradient(135deg, #393939, #090909);
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: larger;
+    border: none;
+    box-shadow: rgba(0,0,0,0.4) 5px 5px 5px 5px;
+}
+
+/* --------------- "How To?" Modal CSS ------------- */
+
+.modal {
+    /*display: none;*/
+    position: absolute;
+    z-index: 3;
+    left: 15vh;
+    /*top: 10vh;*/
+    padding: 10vh;
+    width: 60%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+    background-image: linear-gradient(135deg, #393939, #090909);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+}
+.close {
+    color: #aaaaaa;
+    float:right;
+    padding-right: 3vw;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+     color: #000;
+     text-decoration: none;
+     cursor: pointer;
+ }
+
+/* --------------- Game container CSS ---------------*/
+
+.game-container {    
+    width: 100vw;
+    height: 100vh;
+}
+
+.game-control-bar {
+    width: 80vw;
+    height: 14vh;
+    top: 5vh;
+    left: 10vw;
+    padding: 3vh;
+    position: absolute;
+    align-self: center;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    box-shadow: rgba(0,0,0,0.4) 5px 5px 5px 5px;
+    border-radius: 25px;
+    background-image: linear-gradient(135deg, #393939, #090909);
+    color: cornsilk;
+}
+
+.memory-game-easy, 
+.memory-game-medium, 
+.memory-game-hard {
+    align-content: center;
+    align-self: center;
+    width: 75vw;
+    height: 70vh;
+    display: flex;
+    margin: 0;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    opacity:1;
+    position: absolute;
+    top:23vh;
+    left:12.5%;
+    bottom: 5%;
+}
+
+/* card sizing by difficulty */
+
+.memory-card-easy{
+  width:23%;
+  height: 30%;
+  margin:1%;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+}
+
+.memory-card-medium {
+    width: 23%;
+    height: 25%;
+    margin: 1%;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.memory-card-hard {
+    width: 18%;
+    height: 20%;
+    margin: 1%;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.memory-card-easy:active,
+.memory-card-medium:active,
+.memory-card-hard:active {
+  transform: scale(.97);
+  transition: transform .2s;
+}
+
+.memory-card-easy.flip,
+.memory-card-medium.flip,
+.memory-card-hard.flip {
+  transform: rotateY(180deg);
+  transition: transform .2s;
+}
+ 
+.front-face,
+.back-face{
+  width:100%;
+  height:100%;
+  position: absolute;
+  border-radius: 5px;
+  background: lightblue;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+#hide, 
+.hide{
+    display: none;
+}
+
+#show,
+.show{
+    display:block;
+}
+
+.footer {
+    background-image: linear-gradient(135deg, #393939, #090909);
+    color: #ffffff;
+    width: 100vw;
+    height: 4vh;
+    position: fixed;
+    top:96vh;
+    text-align: right;
+    padding-right: 30px;
+    z-index: 1000;
+}
