@@ -157,7 +157,7 @@ const gameStart = document.getElementById("start-bar");
 const goButton = document.getElementById("go-btn")
 
 function letsGo() {
-    gameStart.classList.toggle("hide");
+    gameStart.classList.add("hide");
     startTimer();
 }
 
@@ -177,6 +177,8 @@ function startAgain() {
 
     $(".flip").removeClass('flip');
 
+    gameStart.classList.remove("hide");
+    resetTimer();
     origValues();
 }
 
@@ -231,10 +233,10 @@ hardCards.forEach(card => card.addEventListener('click', flipCard));
 
 function Victory() {
 
-    if (forEachhasFlippedCard = true,
-       lockBoard = true)
+    if (hasFlippedCard = true,
+        lockBoard = true);
     
-        return console.log("victory");
+       console.log("victory");
 }
 
 
@@ -291,7 +293,7 @@ function resetTimer() {
     stopTimer();
     sec = 60;
     timer.innerHTML = '01:00';
-    gameEnd.classList.add("hide");
+   // gameEnd.classList.add("hide");
 
 
 }

@@ -111,7 +111,6 @@ wrapper {
     padding-bottom: 3vh;
     align-self: center;
     text-align: center;
-    font-weight: 5vh;
     border: none;
     box-shadow: rgba(0,0,0,0.4) 5px 5px 5px 5px;
     border-radius: 25px;
@@ -149,7 +148,7 @@ button:focus {
     cursor: pointer;
 }
 
-.timer {
+#timer {
     padding: 2vh 1vw 2vh 1vw;
     box-sizing: border-box;
     border-spacing: 2vw;
