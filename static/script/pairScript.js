@@ -57,6 +57,9 @@ function startButton() {
     optionControl.classList.add("hide");
     gameContainer.classList.add("hide");
     diffContainer.classList.remove("hide");
+
+    stopTimer();
+    resetTimer();
 }
 
 // Difficulty settings 
@@ -64,7 +67,6 @@ function startButton() {
 const easyGame = document.getElementById("memory-game-easy");
 const medGame = document.getElementById("memory-game-medium");
 const hardGame = document.getElementById("memory-game-hard");
-
 
 
 function playEasy() {
@@ -151,18 +153,7 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
-// reset button function to reshuffle cards in diff class 
-
-const gameStart = document.getElementById("start-bar");
-const goButton = document.getElementById("go-btn")
-
-function letsGo() {
-    gameStart.classList.add("hide");
-    startTimer();
-}
-
-goButton.addEventListener("click", letsGo);
-
+// reset button function to reshuffle cards in difficulty class 
 
 const resetBtn = document.getElementById("reset-btn");
 
@@ -173,11 +164,15 @@ resetBtn.addEventListener('click', shuffleHard);
 homeBtn.addEventListener('click', startAgain);
 resetBtn.addEventListener('click', startAgain);
 
+resetBtn.addEventListener('click', stopTimer);
+resetBtn.addEventListener('click', resetTimer);
+
 function startAgain() {
 
     $(".flip").removeClass('flip');
 
     gameStart.classList.remove("hide");
+    stopTimer();
     resetTimer();
     origValues();
 }
@@ -241,9 +236,13 @@ hardCards.forEach(card => card.addEventListener('click', flipCard));
     gameEnd.innerHTML = "congratulations!! your score is " + sec * 100;
 }*/
 
-
+//////// Timer Function with start function on first click //////
 
 /*stopwatch timer sourced  https://dev.to/gspteck/create-a-stopwatch-in-javascript-2mak */
+
+easyGame.addEventListener("click", startTimer, {once: true });
+medGame.addEventListener("click", startTimer, {once: true });
+hardGame.addEventListener("click", startTimer, {once: true });
 
 const timer = document.getElementById('timer');
 
@@ -308,7 +307,7 @@ const score = document.getElementById("score");
 
 function victory() {
 
-    if (forEachhasFlippedCard = true,
+    if (cards == hasFlippedCard,
            lockBoard = true)
 
     stopTimer();

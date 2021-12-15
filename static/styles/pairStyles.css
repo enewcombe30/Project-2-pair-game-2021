@@ -100,24 +100,6 @@ wrapper {
     font-weight: bold;
 }
 
-.game-start-bar {
-    width: 60vw;
-    height: 45vh;
-    z-index: 2000;
-    top: 30vh;
-    left: 20vw;
-    position: absolute;
-    padding-top: 3vh;
-    padding-bottom: 3vh;
-    align-self: center;
-    text-align: center;
-    border: none;
-    box-shadow: rgba(0,0,0,0.4) 5px 5px 5px 5px;
-    border-radius: 25px;
-    background-image: linear-gradient(135deg, #393939, #090909);
-    color: cornsilk;
-}
-
 .game-end-bar {
     width: 60vw;
     height: 45vh;
