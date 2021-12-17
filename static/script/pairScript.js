@@ -132,7 +132,9 @@ function checkForMatch() {
 
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
+    firstCard.classList.add("match");
     secondCard.removeEventListener('click', flipCard);
+    secondCard.classList.add("match");
 
     resetBoard();
 }
@@ -170,8 +172,6 @@ resetBtn.addEventListener('click', resetTimer);
 function startAgain() {
 
     $(".flip").removeClass('flip');
-
-    gameStart.classList.remove("hide");
     stopTimer();
     resetTimer();
     origValues();
@@ -305,13 +305,26 @@ const score = document.getElementById("score");
 
 // gameEnd.addEventListener('click', resetTimer);
 
+let matchedCardEasy = document.getElementsByClassName("memory-card-easy match");
+let matchedCardMed = document.getElementsByClassName("memory-card-medium match");
+let matchedCardHard = document.getElementsByClassName("memory-card-hard match");
+
 function victory() {
 
-    if (cards == hasFlippedCard,
-           lockBoard = true)
+    if (matchedCardEasy.lenght == 8) {
+        gameEnd.classList.remove("hide");
+        score.innerHTML = "congratulations!! you scored " + sec * 50;
+        stopTimer();
+    }
 
-    stopTimer();
-
-    gameEnd.classList.remove("hide");
-    score.innerHTML = "congratulations!! your score is " + sec * 100;
+    if (matchedCardMed.lenght == 12) {
+        gameEnd.classList.remove("hide");
+        score.innerHTML = "congratulations!! you scored " + sec * 75;
+        stopTimer();
+    }
+    if (matchedCardHard.lenght == 20) {
+        gameEnd.classList.remove("hide");
+        score.innerHTML = "congratulations!! you scored " + sec * 100 ;
+        stopTimer();
+    }
 }
