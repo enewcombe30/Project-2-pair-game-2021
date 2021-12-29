@@ -111,6 +111,8 @@ function flipCard() {
 
 function checkForMatch() {
     if (firstCard.dataset.framework === secondCard.dataset.framework) {
+        firstCard.classList.add("match");
+        secondCard.classList.add("match");
         disableCards();
     }
     else {
@@ -120,9 +122,7 @@ function checkForMatch() {
 
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
-    firstCard.classList.add("match");
     secondCard.removeEventListener('click', flipCard);
-    secondCard.classList.add("match");
 
     resetBoard();
 }
@@ -160,6 +160,7 @@ resetBtn.addEventListener('click', resetTimer);
 function startAgain() {
 
     $(".flip").removeClass('flip');
+    $(".match").removeClass('match');
     stopTimer();
     resetTimer();
     origValues();
@@ -293,11 +294,13 @@ const score = document.getElementById("score");
 
 // gameEnd.addEventListener('click', resetTimer);
 
-let matchedCardEasy = document.getElementsByClassName("memory-card-easy match");
-let matchedCardMed = document.getElementsByClassName("memory-card-medium match");
-let matchedCardHard = document.getElementsByClassName("memory-card-hard match");
+
+
+console.log(matchedEasy.lenght);
 
 function finalMatch() {
+
+    let matchedCardEasy = document.getElementsByClassName("memory-card-easy match");
 
     if (matchedCardEasy.length == 8) {
         gameEnd.classList.remove("hide");
@@ -305,11 +308,14 @@ function finalMatch() {
         stopTimer();
     }
 
+    let matchedCardMed = document.getElementsByClassName("memory-card-medium match");
     if (matchedCardMed.length == 12) {
         gameEnd.classList.remove("hide");
         score.innerHTML = "congratulations!! you scored " + sec * 75;
         stopTimer();
     }
+
+    let matchedCardHard = document.getElementsByClassName("memory-card-hard match");
     if (matchedCardHard.length == 20) {
         gameEnd.classList.remove("hide");
         score.innerHTML = "congratulations!! you scored " + sec * 100 ;
