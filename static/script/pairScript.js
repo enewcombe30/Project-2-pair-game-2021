@@ -29,18 +29,6 @@ window.onclick = function (event) {
 
 //////// Hide control functions /////////
 
-function startHideFunction() {
-    if (homeControl.style.display === "none") {
-        homeControl.style.display = "block";
-    } else {
-        homeControl.style.display = "none";
-    }
-    if (homeControl.style.display === "block") {
-        diffContainer.style.display = "none";
-    } else {
-        diffContainer.style.display = "block";
-    }
-}
 
 function homeFunction() {
     homeControl.classList.remove("hide");
@@ -218,9 +206,9 @@ function shuffleHard() {
     });
 }
 
-easyCards.forEach(card => card.addEventListener('click', flipCard));
-medCards.forEach(card => card.addEventListener('click', flipCard));
-hardCards.forEach(card => card.addEventListener('click', flipCard));
+easyCards.forEach(card => card.addEventListener('click', flipCard, finalMatch));
+medCards.forEach(card => card.addEventListener('click', flipCard, finalMatch));
+hardCards.forEach(card => card.addEventListener('click', flipCard, finalMatch));
 
 // timer script needed 
 // Victory function with display score (remaining time x 100) 
@@ -309,20 +297,20 @@ let matchedCardEasy = document.getElementsByClassName("memory-card-easy match");
 let matchedCardMed = document.getElementsByClassName("memory-card-medium match");
 let matchedCardHard = document.getElementsByClassName("memory-card-hard match");
 
-function victory() {
+function finalMatch() {
 
-    if (matchedCardEasy.lenght == 8) {
+    if (matchedCardEasy.length == 8) {
         gameEnd.classList.remove("hide");
         score.innerHTML = "congratulations!! you scored " + sec * 50;
         stopTimer();
     }
 
-    if (matchedCardMed.lenght == 12) {
+    if (matchedCardMed.length == 12) {
         gameEnd.classList.remove("hide");
         score.innerHTML = "congratulations!! you scored " + sec * 75;
         stopTimer();
     }
-    if (matchedCardHard.lenght == 20) {
+    if (matchedCardHard.length == 20) {
         gameEnd.classList.remove("hide");
         score.innerHTML = "congratulations!! you scored " + sec * 100 ;
         stopTimer();
