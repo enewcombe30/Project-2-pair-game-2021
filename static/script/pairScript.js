@@ -29,7 +29,6 @@ window.onclick = function (event) {
 
 //////// Hide control functions /////////
 
-
 function homeFunction() {
     homeControl.classList.remove("hide");
     gameContainer.classList.add("hide");
@@ -45,7 +44,9 @@ function startButton() {
     optionControl.classList.add("hide");
     gameContainer.classList.add("hide");
     diffContainer.classList.remove("hide");
+    gameEnd.classList.add("hide");
 
+    startAgain();
     stopTimer();
     resetTimer();
 }
@@ -92,7 +93,6 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
-
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
@@ -123,7 +123,7 @@ function checkForMatch() {
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-
+    
     resetBoard();
 }
 
@@ -207,23 +207,9 @@ function shuffleHard() {
     });
 }
 
-easyCards.forEach(card => card.addEventListener('click', flipCard, finalMatch));
-medCards.forEach(card => card.addEventListener('click', flipCard, finalMatch));
-hardCards.forEach(card => card.addEventListener('click', flipCard, finalMatch));
-
-// timer script needed 
-// Victory function with display score (remaining time x 100) 
-// forEach if lockboard === true get timer value and post in modal $[timer:VALUE]
-
-/*function Victory() {
-
-    if (forEach(cards) === true);
-
-        stopTimer();
-
-    gameEnd.classList.remove("hide");
-    gameEnd.innerHTML = "congratulations!! your score is " + sec * 100;
-}*/
+easyCards.forEach(card => card.addEventListener('click', flipCard));
+medCards.forEach(card => card.addEventListener('click', flipCard));
+hardCards.forEach(card => card.addEventListener('click', flipCard));
 
 //////// Timer Function with start function on first click //////
 
@@ -284,41 +270,55 @@ function resetTimer() {
     stopTimer();
     sec = 60;
     timer.innerHTML = '01:00';
-   // gameEnd.classList.add("hide");
-
-
 }
 
 const gameEnd = document.getElementById("end-bar");
 const score = document.getElementById("score");
 
-// gameEnd.addEventListener('click', resetTimer);
+const gameParentEasy = document.getElementById("memory-game-easy");
+const matchedEasy = gameParentEasy.getElementsByClassName("memory-card-easy match");
+easyCards.forEach(card => card.addEventListener('click', easyWin));
 
+function easyWin() {
+    console.log(matchedEasy.length);
 
-
-console.log(matchedEasy.lenght);
-
-function finalMatch() {
-
-    let matchedCardEasy = document.getElementsByClassName("memory-card-easy match");
-
-    if (matchedCardEasy.length == 8) {
-        gameEnd.classList.remove("hide");
-        score.innerHTML = "congratulations!! you scored " + sec * 50;
+    if (matchedEasy.length == 8) {
         stopTimer();
-    }
 
-    let matchedCardMed = document.getElementsByClassName("memory-card-medium match");
-    if (matchedCardMed.length == 12) {
         gameEnd.classList.remove("hide");
-        score.innerHTML = "congratulations!! you scored " + sec * 75;
-        stopTimer();
-    }
-
-    let matchedCardHard = document.getElementsByClassName("memory-card-hard match");
-    if (matchedCardHard.length == 20) {
-        gameEnd.classList.remove("hide");
-        score.innerHTML = "congratulations!! you scored " + sec * 100 ;
-        stopTimer();
+        score.innerHTML = "congratulations!! your score is " + sec * 50;
     }
 }
+
+const gameParentMed = document.getElementById("memory-game-med");
+const matchedMed = gameParentMed.getElementsByClassName("memory-card-medium match");
+medCards.forEach(card => card.addEventListener('click', medWin));
+
+function medWin() {
+    console.log(matchedMed.length);
+
+    if (matchedMed.length == 12) {
+        stopTimer();
+
+        gameEnd.classList.remove("hide");
+        score.innerHTML = "congratulations!! your score is " + sec * 75;
+    }
+}
+
+const gameParentHard = document.getElementById("memory-game-Hard");
+const matchedHard = gameParentHard.getElementsByClassName("memory-card-hard match");
+hardCards.forEach(card => card.addEventListener('click', hardWin));
+
+function hardWin() {
+    console.log(matchedHard.length);
+
+    if (matchedHard.length == 20) {
+        stopTimer();
+
+        gameEnd.classList.remove("hide");
+        score.innerHTML = "congratulations!! your score is " + sec * 100;
+    }
+}
+
+
+
