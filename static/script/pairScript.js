@@ -275,9 +275,17 @@ function resetTimer() {
 const gameEnd = document.getElementById("end-bar");
 const score = document.getElementById("score");
 
-const gameParentEasy = document.getElementById("memory-game-easy");
-const matchedEasy = gameParentEasy.getElementsByClassName("memory-card-easy match");
+var gameParentEasy = document.getElementById("memory-game-easy");
+var matchedEasy = gameParentEasy.getElementsByClassName("match");
 easyCards.forEach(card => card.addEventListener('click', easyWin));
+
+var gameParentMed = document.getElementById("memory-game-med");
+var matchedMed = gameParentMed.getElementByClassName("match");
+medCards.forEach(card => card.addEventListener('click', medWin));
+
+var gameParentHard = document.getElementById("memory-game-Hard");
+var matchedHard = gameParentHard.getElementsByClassName("match");
+hardCards.forEach(card => card.addEventListener('click', hardWin));
 
 function easyWin() {
     console.log(matchedEasy.length);
@@ -290,10 +298,6 @@ function easyWin() {
     }
 }
 
-const gameParentMed = document.getElementById("memory-game-med");
-const matchedMed = gameParentMed.getElementsByClassName("memory-card-medium match");
-medCards.forEach(card => card.addEventListener('click', medWin));
-
 function medWin() {
     console.log(matchedMed.length);
 
@@ -304,10 +308,6 @@ function medWin() {
         score.innerHTML = "congratulations!! your score is " + sec * 75;
     }
 }
-
-const gameParentHard = document.getElementById("memory-game-Hard");
-const matchedHard = gameParentHard.getElementsByClassName("memory-card-hard match");
-hardCards.forEach(card => card.addEventListener('click', hardWin));
 
 function hardWin() {
     console.log(matchedHard.length);
