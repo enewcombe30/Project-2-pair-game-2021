@@ -45,11 +45,15 @@ function startButton() {
     gameContainer.classList.add("hide");
     diffContainer.classList.remove("hide");
     gameEnd.classList.add("hide");
+    easyGame.addEventListener("click", startTimer, { once: true });
+    medGame.addEventListener("click", startTimer, { once: true });
+    hardGame.addEventListener("click", startTimer, { once: true });
 
     startAgain();
     stopTimer();
     resetTimer();
 }
+
 
 // Difficulty settings 
 
@@ -64,6 +68,7 @@ function playEasy() {
     easyGame.classList.remove("hide");
     medGame.classList.add("hide");
     hardGame.classList.add("hide");
+    easyCards.forEach(card => card.addEventListener('click', easyWin))
 }
 
 function playMed() {
@@ -164,6 +169,22 @@ function startAgain() {
     stopTimer();
     resetTimer();
     origValues();
+    easyGame.addEventListener("click", startTimer, { once: true });
+    medGame.addEventListener("click", startTimer, { once: true });
+    hardGame.addEventListener("click", startTimer, { once: true });
+}
+
+function tryAgain() {
+
+    $(".flip").removeClass('flip');
+    $(".match").removeClass('match');
+    stopTimer();
+    resetTimer();
+    origValues();
+    gameEnd.classList.add("hide");
+    easyGame.addEventListener("click", startTimer, { once: true });
+    medGame.addEventListener("click", startTimer, { once: true });
+    hardGame.addEventListener("click", startTimer, { once: true });
 }
 
 function origValues() {
@@ -171,8 +192,11 @@ function origValues() {
     lockBoard = false;
 
     easyCards.forEach(card => card.addEventListener('click', flipCard));
+    easyCards.forEach(card => card.addEventListener('click', easyWin));
     medCards.forEach(card => card.addEventListener('click', flipCard));
+    medCards.forEach(card => card.addEventListener('click', medWin));
     hardCards.forEach(card => card.addEventListener('click', flipCard));
+    hardCards.forEach(card => card.addEventListener('click', hardWin));
 
 }
 
@@ -215,9 +239,7 @@ hardCards.forEach(card => card.addEventListener('click', flipCard));
 
 /*stopwatch timer sourced  https://dev.to/gspteck/create-a-stopwatch-in-javascript-2mak */
 
-easyGame.addEventListener("click", startTimer, {once: true });
-medGame.addEventListener("click", startTimer, {once: true });
-hardGame.addEventListener("click", startTimer, {once: true });
+
 
 const timer = document.getElementById('timer');
 
@@ -275,12 +297,12 @@ function resetTimer() {
 const gameEnd = document.getElementById("end-bar");
 const score = document.getElementById("score");
 
-var gameParentEasy = document.getElementById("memory-game-easy");
-var matchedEasy = gameParentEasy.getElementsByClassName("match");
+const gameParentEasy = document.getElementById("memory-game-easy");
+const matchedEasy = gameParentEasy.getElementsByClassName("match");
 easyCards.forEach(card => card.addEventListener('click', easyWin));
 
 var gameParentMed = document.getElementById("memory-game-med");
-var matchedMed = gameParentMed.getElementByClassName("match");
+var matchedMed = gameParentMed.getElementsByClassName("match");
 medCards.forEach(card => card.addEventListener('click', medWin));
 
 var gameParentHard = document.getElementById("memory-game-Hard");
@@ -291,8 +313,9 @@ function easyWin() {
     console.log(matchedEasy.length);
 
     if (matchedEasy.length == 8) {
+        origValues();
         stopTimer();
-
+        easyCards.forEach(card => card.removeEventListener('click', easyWin));
         gameEnd.classList.remove("hide");
         score.innerHTML = "congratulations!! your score is " + sec * 50;
     }
@@ -302,7 +325,9 @@ function medWin() {
     console.log(matchedMed.length);
 
     if (matchedMed.length == 12) {
+        origValues();
         stopTimer();
+        medCards.forEach(card => card.removeEventListener('click', medWin));
 
         gameEnd.classList.remove("hide");
         score.innerHTML = "congratulations!! your score is " + sec * 75;
@@ -313,7 +338,9 @@ function hardWin() {
     console.log(matchedHard.length);
 
     if (matchedHard.length == 20) {
+        origValues();
         stopTimer();
+        hardCards.forEach(card => card.removeEventListener('click', hardWin));
 
         gameEnd.classList.remove("hide");
         score.innerHTML = "congratulations!! your score is " + sec * 100;
