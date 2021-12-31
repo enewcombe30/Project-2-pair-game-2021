@@ -301,11 +301,11 @@ const gameParentEasy = document.getElementById("memory-game-easy");
 const matchedEasy = gameParentEasy.getElementsByClassName("match");
 easyCards.forEach(card => card.addEventListener('click', easyWin));
 
-var gameParentMed = document.getElementById("memory-game-med");
+var gameParentMed = document.getElementById("memory-game-medium");
 var matchedMed = gameParentMed.getElementsByClassName("match");
 medCards.forEach(card => card.addEventListener('click', medWin));
 
-var gameParentHard = document.getElementById("memory-game-Hard");
+var gameParentHard = document.getElementById("memory-game-hard");
 var matchedHard = gameParentHard.getElementsByClassName("match");
 hardCards.forEach(card => card.addEventListener('click', hardWin));
 
