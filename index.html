@@ -61,7 +61,10 @@
                     <div class="row">
                         <div class="col-sm-2"></div>
                         <button class="col-sm-3" id="music-btn">Music On/Off</button>
-                        <!-- music needs to be added with on/off toggle -->
+                        <!-- Music hidden, looped and set to autostart -->
+                        <audio autoplay class="back-music">
+                        <source src="static\music\GlimmerMan.mp3" type="audio/mp3" />
+                        </audio>
                         <div class="col-sm-2"></div>
                         <button class="col-sm-3" id="SFX-btn">SFX On/Off</button>
                         <!-- SFX need to be added with on/off toggle -->
@@ -99,7 +102,7 @@
                         <div class="col-sm-1"></div>
                         <button class="col-sm-2" id="reset-btn" onclick="startAgain()">Restart</button>
                         <div class="col-sm-1"></div>
-                        <div class="col-sm-3" id="timer">01:00</div> <!-- Timer countdown to be added with score modal presented -->
+                        <div class="col-sm-3" id="timer">01:00</div> 
                         <div class="col-sm-1"></div>
                     </div>
                 </div>
