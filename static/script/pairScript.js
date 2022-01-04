@@ -8,6 +8,8 @@ const diffContainer = document.getElementById("diff-container");
 
 const homeBtn = document.getElementById("home-btn");
 
+
+
 /////////  How to button Script that creates modal ////////////
 
 var modal = document.getElementById("how-modal");
@@ -52,6 +54,22 @@ function startButton() {
     startAgain();
     stopTimer();
     resetTimer();
+}
+
+//////// Audio Functions /////////
+
+const audio = document.getElementById("audio");
+const musicBtn = document.getElementById("music-btn");
+
+homeControl.addEventListener("click", toggleMusic, { once: true });
+musicBtn.addEventListener("click", toggleMusic);
+
+function toggleMusic() {
+    if (audio.paused)
+        audio.play();
+    else
+        audio.pause();
+        audio.currentTime = 0;
 }
 
 
@@ -253,6 +271,7 @@ function startTimer() {
         timerCycle();
     }
 }
+
 function stopTimer() {
     if (stoptime == false) {
         stoptime = true;

@@ -11,126 +11,126 @@
     <wrapper>
         <div class="background">
 
-            <!-- Home game control bar -->
+            <audio src="static/music/GlimmerMan.mp3" autoplay></audio>
+                <!-- Home game control bar -->
 
-            <div class="home-control-bar" id="home-control-bar">
-                <h1>Match the Pairs</h1>
-                <div class="container game-controls">
-                    <div class="controls">
-                        <div class="row">
-                            <!--For each button modal https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal&stacked=h -->
-                            <div class="col-sm-3"></div>
-                            <button class="col-sm-6" id="start-btn" onclick="startButton()">Start!</button>
-                            <div class="col-sm-3"></div>
-                        </div>
-                        <br />
-                        <div class="row">
-                            <div class="col-sm-2"></div>
-                            <button class="col-sm-3" id="option-btn" onclick="optionFunction()">Options</button>
-                            <div class="col-sm-2"></div>
-                            <button class="col-sm-3" id="how-btn">How To</button>
-                            <div id="how-modal" class="modal">
-                                <div class="modal-content">
-                                    <span class="close">&times;</span>
-                                    <h2>Rules of the game</h2>
-                                    <p>The aim of the game is to match the pictures as quickly as possible!</p>
-                                    <p>Match all pairs in the given time to receive your score!</p>
-                                    <h2>Getting started</h2>
-                                    <p>Click the start button to choose your preferred difficulty.<p>
-                                    <p>Easy - 8 cards, 4 pairs</p>
-                                    <p>Medium - 12 cards, 6 pairs</p>
-                                    <p>Hard - 20 cards, 10 pairs</p>
-                                    <p>When you're ready, click on a card to reaveal the image and start the timer.</p>
-                                    <p>When you match to images the cards will lock!</p>
-                                    <p>Match all the pairs to win the game!!</p>
-                                </div>
+                <div class="home-control-bar" id="home-control-bar">
+                    <h1>Match the Pairs</h1>
+                    <div class="container game-controls">
+                        <div class="controls">
+                            <div class="row">
+                                <!--For each button modal https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal&stacked=h -->
+                                <div class="col-sm-3"></div>
+                                <button class="col-sm-6" id="start-btn" onclick="startButton()">Start!</button>
+                                <div class="col-sm-3"></div>
                             </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-2"></div>
+                                <button class="col-sm-3" id="option-btn" onclick="optionFunction()">Options</button>
+                                <div class="col-sm-2"></div>
+                                <button class="col-sm-3" id="how-btn">How To</button>
+                                <div id="how-modal" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <h2>Rules of the game</h2>
+                                        <p>The aim of the game is to match the pictures as quickly as possible!</p>
+                                        <p>Match all pairs in the given time to receive your score!</p>
+                                        <h2>Getting started</h2>
+                                        <p>Click the start button to choose your preferred difficulty.<p>
+                                        <p>Easy - 8 cards, 4 pairs</p>
+                                        <p>Medium - 12 cards, 6 pairs</p>
+                                        <p>Hard - 20 cards, 10 pairs</p>
+                                        <p>When you're ready, click on a card to reaveal the image and start the timer.</p>
+                                        <p>When you match to images the cards will lock!</p>
+                                        <p>Match all the pairs to win the game!!</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option control bar -->
+
+                <div class="option-control-bar hide" id="option-control-bar">
+                    <h1>Options <button class="option-close" id="option-close" onclick="optionFunction()">&times;</button></h1>
+                    <br />
+                    <br />
+                    <div class="option-controls">
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <button class="col-sm-3" id="music-btn">Music On/Off</button>
+                            <!-- Music hidden, looped and set to autostart -->
+                            <audio src="static/sounds/Music/GlimmerMan.mp3" id="audio" loop="loop">
+                            </audio>
+                            <div class="col-sm-2"></div>
+                            <button class="col-sm-3" id="SFX-btn">SFX On/Off</button>
+                            <!-- SFX need to be added with on/off toggle -->
                             <div class="col-sm-2"></div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Option control bar -->
+                <!--Difficulty pop-up Div-->
 
-            <div class="option-control-bar hide" id="option-control-bar">
-                <h1>Options <button class="option-close" id="option-close" onclick="optionFunction()">&times;</button></h1>
-                <br />
-                <br />
-                <div class="option-controls">
+                <div class="diff-control-bar hide" id="diff-container">
+                    <p><h1>Choose Your Difficulty <button id="diff-close" onclick="homeFunction()">&times;</button></h1></p>
+                    <br />
+                    <br />
                     <div class="row">
                         <div class="col-sm-2"></div>
-                        <button class="col-sm-3" id="music-btn">Music On/Off</button>
-                        <!-- Music hidden, looped and set to autostart -->
-                        <audio autoplay class="back-music">
-                        <source src="static\music\GlimmerMan.mp3" type="audio/mp3" />
-                        </audio>
-                        <div class="col-sm-2"></div>
-                        <button class="col-sm-3" id="SFX-btn">SFX On/Off</button>
-                        <!-- SFX need to be added with on/off toggle -->
-                        <div class="col-sm-2"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!--Difficulty pop-up Div-->
-
-            <div class="diff-control-bar hide" id="diff-container">
-                <p><h1>Choose Your Difficulty <button id="diff-close" onclick="homeFunction()">&times;</button></h1></p>
-                <br />
-                <br />
-                <div class="row">
-                    <div class="col-sm-2"></div>
-                    <button class="col-sm-2 set-diff" id="easy-btn" onclick="playEasy()">Easy</button>
-                    <div class="col-sm-1"></div>
-                    <button class="col-sm-2 set-diff" id="med-btn" onclick="playMed()">Medium</button>
-                    <div class="col-sm-1"></div>
-                    <button class="col-sm-2 set-diff" id="hard-btn" onclick="playHard()">Hard</button>
-                    <div class="col-sm-2"></div>
-                </div>
-                <br />
-            </div>
-            <br />
-
-            <!-- Game container -->
-
-            <div class="game-container hide" id="game-container">
-                <div class="game-control-bar">
-                    <div class="row">
-                        <div class="col-sm-2"></div>
-                        <button class="col-sm-2" id="home-btn" onclick="homeFunction()">Home</button>
+                        <button class="col-sm-2 set-diff" id="easy-btn" onclick="playEasy()">Easy</button>
                         <div class="col-sm-1"></div>
-                        <button class="col-sm-2" id="reset-btn" onclick="startAgain()">Restart</button>
+                        <button class="col-sm-2 set-diff" id="med-btn" onclick="playMed()">Medium</button>
                         <div class="col-sm-1"></div>
-                        <div class="col-sm-3" id="timer">01:00</div> 
-                        <div class="col-sm-1"></div>
+                        <button class="col-sm-2 set-diff" id="hard-btn" onclick="playHard()">Hard</button>
+                        <div class="col-sm-2"></div>
                     </div>
+                    <br />
                 </div>
-                <div class="game-end-bar hide" id="end-bar">
-                    <div class="row">
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4"><h1 style="padding-top:10%;">Victory!</h1></div>
-                        <div class="col-sm-4"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-5"></div>
-                        <div class="col-sm-2" id="score"></div>
-                        <div class="col-sm-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-5"></div>
-                        <button class="col-sm-2" id="home-btn" onclick="startButton()">Change difficulty</button>
-                        <div class="col-sm-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-5"></div>
-                        <button class="col-sm-2" id="home-btn" onclick="tryAgain()">Try again?</button>
-                        <div class="col-sm-5"></div>
-                    </div>
-                </div>
+                <br />
 
-                <!-- Easy difficulty game -->
-                <div class="memory-game-easy hide" id="memory-game-easy">
+                <!-- Game container -->
+
+                <div class="game-container hide" id="game-container">
+                    <div class="game-control-bar">
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <button class="col-sm-2" id="home-btn" onclick="homeFunction()">Home</button>
+                            <div class="col-sm-1"></div>
+                            <button class="col-sm-2" id="reset-btn" onclick="startAgain()">Restart</button>
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-3" id="timer">01:00</div>
+                            <div class="col-sm-1"></div>
+                        </div>
+                    </div>
+                    <div class="game-end-bar hide" id="end-bar">
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4"><h1 style="padding-top:10%;">Victory!</h1></div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-2" id="score"></div>
+                            <div class="col-sm-5"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5"></div>
+                            <button class="col-sm-2" id="home-btn" onclick="startButton()">Change difficulty</button>
+                            <div class="col-sm-5"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5"></div>
+                            <button class="col-sm-2" id="home-btn" onclick="tryAgain()">Try again?</button>
+                            <div class="col-sm-5"></div>
+                        </div>
+                    </div>
+
+                    <!-- Easy difficulty game -->
+                    <div class="memory-game-easy hide" id="memory-game-easy">
 
                         <div class="memory-card-easy card" data-framework="tikiAngry">
                             <img class="front-face" src="static/images/Game-images/tikiAngry.png" alt="tikiAngry" />
@@ -164,12 +164,12 @@
                             <img class="front-face" src="static/images/Game-images/tikiPurp.png" alt="tikiPurp" />
                             <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
                         </div>
-                    
-                </div>
 
-                <!-- Medium difficulty game -->
+                    </div>
 
-                <div class="memory-game-medium hide" id="memory-game-medium">
+                    <!-- Medium difficulty game -->
+
+                    <div class="memory-game-medium hide" id="memory-game-medium">
 
                         <div class="memory-card-medium card" data-framework="tikiAngry">
                             <img class="front-face" src="static/images/Game-images/tikiAngry.png" alt="tikiAngry" />
@@ -219,12 +219,12 @@
                             <img class="front-face" src="static/images/Game-images/tikiVJS.png" alt="tikiVJS" />
                             <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
                         </div>
-                    
-                </div>
 
-                <!-- Hard difficulty game-->
+                    </div>
 
-                <div class="memory-game-hard hide" id="memory-game-hard">
+                    <!-- Hard difficulty game-->
+
+                    <div class="memory-game-hard hide" id="memory-game-hard">
 
                         <div class="memory-card-hard card" data-framework="tikiAngry">
                             <img class="front-face" src="static/images/Game-images/tikiAngry.png" alt="tikiAngry" />
@@ -306,11 +306,11 @@
                             <img class="front-face" src="static/images/Game-images/tikiSeagull.jpg" alt="tikiSeagull" />
                             <img class="back-face" src="static/images/Game-images/jTrees.png" alt="JS Badge">
                         </div>
-                    
 
+
+                    </div>
+                    <!--Add Restart container with button pop-up when game complete // default set to "hide"-->
                 </div>
-                <!--Add Restart container with button pop-up when game complete // default set to "hide"-->
-            </div>
 
         </div>
         <footer>
