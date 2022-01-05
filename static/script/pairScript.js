@@ -39,6 +39,7 @@ function homeFunction() {
 
 function optionFunction() {
     optionControl.classList.toggle("hide");
+    SFXBtn.innerHtml = "SFX OFF";
 }
 
 function startButton() {
@@ -61,16 +62,35 @@ function startButton() {
 const bMusic = document.getElementById("audio");
 const musicBtn = document.getElementById("music-btn");
 const allBtn = document.querySelectorAll("button");
+const SFX = document.getElementsByClassName("SFX");
+SFX.muted = false;
+const SFXBtn = document.getElementById("SFX-btn");
 
 homeControl.addEventListener("click", toggleMusic, { once: true });
 musicBtn.addEventListener("click", toggleMusic);
+SFXBtn.addEventListener("click", toggleSFX);
 
 function toggleMusic() {
-    if (bMusic.paused)
+    if (bMusic.paused) {
         bMusic.play();
-    else
+        musicBtn.innerHTML = "Music OFF";
+    }
+    else {
         bMusic.pause();
         bMusic.currentTime = 0;
+        musicBtn.innerHTML = "Music ON";
+    }
+}
+
+function toggleSFX() {
+    if (SFX.muted) {
+        SFX.muted = false;
+        SFXBtn.innerHTML = "SFX OFF"
+    }
+    else {
+        SFX.muted = true;
+        SFXBtn.innerHTML = "SFX ON";
+    }
 }
 
 const btnClick = document.getElementById("btn-click");
