@@ -10,8 +10,6 @@
 <body>
     <wrapper>
         <div class="background">
-
-            <audio src="static/music/GlimmerMan.mp3" autoplay></audio>
                 <!-- Home game control bar -->
 
                 <div class="home-control-bar" id="home-control-bar">
@@ -63,11 +61,22 @@
                             <div class="col-sm-2"></div>
                             <button class="col-sm-3" id="music-btn">Music On/Off</button>
                             <!-- Music hidden, looped and set to autostart -->
-                            <audio src="static/sounds/Music/GlimmerMan.mp3" id="audio" loop="loop">
-                            </audio>
-                            <div class="col-sm-2"></div>
-                            <button class="col-sm-3" id="SFX-btn">SFX On/Off</button>
-                            <!-- SFX need to be added with on/off toggle -->
+                                <audio src="static/sounds/Music/GlimmerMan.mp3" id="audio" loop="loop">
+                                </audio>
+                                <div class="col-sm-2"></div>
+                                <button class="col-sm-3" id="SFX-btn">SFX On/Off</button>
+                                <audio class="SFX" id="btn-click">
+                                    <source src="static/sounds/SFX/button-click-sound-effect.mp3" />
+                                </audio>
+                                <audio class="SFX" id="game-lose">
+                                    <source src="static/sounds/SFX/game-lose-2.mp3" />
+                                </audio>
+                                <audio class="SFX" id="success">
+                                    <source src="static/sounds/SFX/success-sound-effect.mp3" />
+                                </audio>
+                                <audio class="SFX" id="flip-sound">
+                                    <source src="static/sounds/SFX/bonk-sound-effect.mp3" />
+                                </audio>
                             <div class="col-sm-2"></div>
                         </div>
                     </div>
@@ -109,7 +118,7 @@
                     <div class="game-end-bar hide" id="end-bar">
                         <div class="row">
                             <div class="col-sm-4"></div>
-                            <div class="col-sm-4"><h1 style="padding-top:10%;">Victory!</h1></div>
+                            <div class="col-sm-4" id="end-title"><h1 style="padding-top:10%;"></h1></div>
                             <div class="col-sm-4"></div>
                         </div>
                         <div class="row">
@@ -124,7 +133,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-5"></div>
-                            <button class="col-sm-2" id="home-btn" onclick="tryAgain()">Try again?</button>
+                            <button class="col-sm-2" id="reset-btn" onclick="tryAgain()">Try again?</button>
                             <div class="col-sm-5"></div>
                         </div>
                     </div>

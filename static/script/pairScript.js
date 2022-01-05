@@ -58,19 +58,46 @@ function startButton() {
 
 //////// Audio Functions /////////
 
-const audio = document.getElementById("audio");
+const bMusic = document.getElementById("audio");
 const musicBtn = document.getElementById("music-btn");
+const allBtn = document.querySelectorAll("button");
 
 homeControl.addEventListener("click", toggleMusic, { once: true });
 musicBtn.addEventListener("click", toggleMusic);
 
 function toggleMusic() {
-    if (audio.paused)
-        audio.play();
+    if (bMusic.paused)
+        bMusic.play();
     else
-        audio.pause();
-        audio.currentTime = 0;
+        bMusic.pause();
+        bMusic.currentTime = 0;
 }
+
+const btnClick = document.getElementById("btn-click");
+const matchSound = document.getElementById("flip-sound");
+const gameLose = document.getElementById("game-lose");
+const successSound = document.getElementById("success");
+
+
+function playButtonClick() {
+    btnClick.play();
+}
+
+allBtn.forEach(button => button.addEventListener("click", playButtonClick));
+
+function playMatchSound() {
+    matchSound.play();
+}
+
+function playGameLose() {
+    gameLose.play();
+}
+
+function playSuccessSound() {
+    successSound.play();
+}
+
+// follow for tips on adding sound effects https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/js/script.js
 
 
 // Difficulty settings 
@@ -121,6 +148,7 @@ function flipCard() {
     if (this === firstCard) return;
 
     this.classList.add('flip');
+    playButtonClick();
 
     if (!hasFlippedCard) {
         hasFlippedCard = true;
@@ -137,6 +165,7 @@ function checkForMatch() {
         firstCard.classList.add("match");
         secondCard.classList.add("match");
         disableCards();
+        playMatchSound();
     }
     else {
         unFlipCards();
@@ -199,6 +228,9 @@ function tryAgain() {
     stopTimer();
     resetTimer();
     origValues();
+    shuffleEasy();
+    shuffleMedium();
+    shuffleHard();
     gameEnd.classList.add("hide");
     easyGame.addEventListener("click", startTimer, { once: true });
     medGame.addEventListener("click", startTimer, { once: true });
@@ -314,6 +346,7 @@ function resetTimer() {
 }
 
 const gameEnd = document.getElementById("end-bar");
+const title = document.getElementById("end-title");
 const score = document.getElementById("score");
 
 const gameParentEasy = document.getElementById("memory-game-easy");
@@ -334,9 +367,11 @@ function easyWin() {
     if (matchedEasy.length == 8) {
         origValues();
         stopTimer();
+        playSuccessSound();
         easyCards.forEach(card => card.removeEventListener('click', easyWin));
         gameEnd.classList.remove("hide");
-        score.innerHTML = "congratulations!! your score is " + sec * 50;
+        title.innerHTML = "Victory!";
+        score.innerHTML = "congratulations!! your score is " + sec * 25;
     }
 }
 
@@ -346,10 +381,11 @@ function medWin() {
     if (matchedMed.length == 12) {
         origValues();
         stopTimer();
+        playSuccessSound();
         medCards.forEach(card => card.removeEventListener('click', medWin));
-
+        title.innerHTML = "Victory!";
         gameEnd.classList.remove("hide");
-        score.innerHTML = "congratulations!! your score is " + sec * 75;
+        score.innerHTML = "congratulations!! your score is " + sec * 50;
     }
 }
 
@@ -359,12 +395,14 @@ function hardWin() {
     if (matchedHard.length == 20) {
         origValues();
         stopTimer();
+        playSuccessSound();
         hardCards.forEach(card => card.removeEventListener('click', hardWin));
-
+        title.innerHTML = "Victory!";
         gameEnd.classList.remove("hide");
         score.innerHTML = "congratulations!! your score is " + sec * 100;
     }
 }
 
+function gameFail() {
 
-
+}
