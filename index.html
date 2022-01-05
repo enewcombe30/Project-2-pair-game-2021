@@ -115,7 +115,27 @@
                         <div class="col-sm-1"></div>
                     </div>
                 </div>
-
+                <div class="game-end-bar hide" id="end-bar">
+                    <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4" id="end-title"><h1 style="padding-top:10%;"></h1></div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5"></div>
+                        <div class="col-sm-2" id="score"></div>
+                        <div class="col-sm-5"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <button class="col-sm-2" onclick="homeFunction()">Home</button>
+                        <div class="col-sm-1"></div>
+                        <button class="col-sm-2" id="home-btn" onclick="startButton()">Change difficulty</button>
+                        <div class="col-sm-1"></div>
+                        <button class="col-sm-2" id="reset-btn" onclick="tryAgain()">Try again?</button>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
 
                 <!-- Easy difficulty game -->
                 <div class="memory-game-easy hide" id="memory-game-easy">
@@ -299,27 +319,7 @@
                 </div>
                 <!--Add Restart container with button pop-up when game complete // default set to "hide"-->
             </div>
-            <div class="game-end-bar hide" id="end-bar">
-                <div class="row">
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-4" id="end-title"><h1 style="padding-top:10%;"></h1></div>
-                    <div class="col-sm-4"></div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-5"></div>
-                    <div class="col-sm-2" id="score"></div>
-                    <div class="col-sm-5"></div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2"></div>
-                    <button class="col-sm-2" onclick="homeFunction()">Home</button>
-                    <div class="col-sm-1"></div>
-                    <button class="col-sm-2" id="home-btn" onclick="startButton()">Change difficulty</button>
-                    <div class="col-sm-1"></div>
-                    <button class="col-sm-2" id="reset-btn" onclick="tryAgain()">Try again?</button>
-                    <div class="col-sm-2"></div>
-                </div>
-            </div>
+            
 
         </div>
         <footer>
