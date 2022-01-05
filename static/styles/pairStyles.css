@@ -13,6 +13,17 @@ wrapper {
     position: fixed;
     
 }
+
+#hide,
+.hide {
+    display: none;
+}
+
+#show,
+.show {
+    display: block;
+}
+
 .background {
     background-image: url('../images/Game-images/leaves.jpg');
     background-repeat: no-repeat;
@@ -21,7 +32,7 @@ wrapper {
     width: 100vw;
     perspective: 2000px;
 }
-                                                            /* Breakpoints set for cards and divs */
+                                                          
 /* --------------- Game control div CSS ------------ */
 
 .home-control-bar {
@@ -165,11 +176,9 @@ button:focus {
 /* --------------- "How To?" Modal CSS ------------- */
 
 .modal {
-    /*display: none;*/
     position: absolute;
     z-index: 3;
     left: 15vh;
-    /*top: 10vh;*/
     padding: 10vh;
     width: 60%;
     height: 100%;
@@ -272,6 +281,8 @@ button:focus {
     transition: transform .5s;
 }
 
+/* Card Flip and active CSS */
+
 .memory-card-easy:active,
 .memory-card-medium:active,
 .memory-card-hard:active {
@@ -300,15 +311,7 @@ button:focus {
   transform: rotateY(180deg);
 }
 
-#hide, 
-.hide{
-    display: none;
-}
 
-#show,
-.show{
-    display:block;
-}
 
 .footer {
     background-image: linear-gradient(135deg, #393939, #090909);
@@ -320,4 +323,22 @@ button:focus {
     text-align: right;
     padding-right: 30px;
     z-index: 1000;
+}
+
+/* All media breakpoints to work along side Bootstrap grid */
+
+@media (min-width: 576px) {
+ }
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}
+
+
+@media (min-width: 1400px) {
 }
