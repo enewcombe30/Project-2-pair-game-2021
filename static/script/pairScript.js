@@ -39,7 +39,6 @@ function homeFunction() {
 
 function optionFunction() {
     optionControl.classList.toggle("hide");
-    SFXBtn.innerHtml = "SFX OFF";
 }
 
 function startButton() {
@@ -62,9 +61,8 @@ function startButton() {
 const bMusic = document.getElementById("audio");
 const musicBtn = document.getElementById("music-btn");
 const allBtn = document.querySelectorAll("button");
-const SFX = document.getElementsByClassName("SFX");
-SFX.muted = false;
 const SFXBtn = document.getElementById("SFX-btn");
+
 
 homeControl.addEventListener("click", toggleMusic, { once: true });
 musicBtn.addEventListener("click", toggleMusic);
@@ -83,15 +81,25 @@ function toggleMusic() {
 }
 
 function toggleSFX() {
-    if (SFX.muted) {
-        SFX.muted = false;
-        SFXBtn.innerHTML = "SFX OFF"
+    if (btnClick.muted == false) {
+        SFXBtn.innerHTML = "SFX ON";
+        btnClick.muted = true;
+        matchSound.muted = true;
+        gameLose.muted = true;
+        successSound.muted = true;
+        
     }
     else {
-        SFX.muted = true;
-        SFXBtn.innerHTML = "SFX ON";
+        SFXBtn.innerHTML = "SFX OFF";
+        btnClick.muted = false;
+        matchSound.muted = false;
+        gameLose.muted = false;
+        successSound.muted = false;
+        
     }
+
 }
+        
 
 const btnClick = document.getElementById("btn-click");
 const matchSound = document.getElementById("flip-sound");
@@ -373,8 +381,8 @@ const gameParentEasy = document.getElementById("memory-game-easy");
 const matchedEasy = gameParentEasy.getElementsByClassName("match");
 easyCards.forEach(card => card.addEventListener('click', easyWin));
 
-var gameParentMed = document.getElementById("memory-game-medium");
-var matchedMed = gameParentMed.getElementsByClassName("match");
+const gameParentMed = document.getElementById("memory-game-medium");
+const matchedMed = gameParentMed.getElementsByClassName("match");
 medCards.forEach(card => card.addEventListener('click', medWin));
 
 var gameParentHard = document.getElementById("memory-game-hard");
