@@ -35,7 +35,6 @@ function homeFunction() {
     homeControl.classList.remove("hide");
     gameContainer.classList.add("hide");
     diffContainer.classList.add("hide");
-    gameEnd.classList.add("hide");
 }
 
 function optionFunction() {
