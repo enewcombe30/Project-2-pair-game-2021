@@ -327,6 +327,13 @@ button:focus {
 
 /* All media breakpoints to work along side Bootstrap grid */
 
+@media (max-width: 576px) {
+    .home-control-bar {
+        top: 20vh;
+        height: 60vh;
+    }
+}
+
 @media (min-width: 576px) {
  }
 
@@ -334,11 +341,14 @@ button:focus {
 }
 
 @media (min-width: 992px) {
+    .home-control-bar {
+        top: 30vh;
+        height: 45vh;
+    }
 }
 
 @media (min-width: 1200px) {
 }
-
 
 @media (min-width: 1400px) {
 }
