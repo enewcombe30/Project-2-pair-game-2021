@@ -303,15 +303,15 @@ button:focus {
     -webkit-transform: rotateY(180deg);
     transition: transform .2s;
 }
- 
-.front-face
-,.back-face{
-  width:100%;
-  height:100%;
-  position: absolute;
-  border-radius: 5px;
-  background: lightblue;
-  backface-visibility: hidden;
+
+.front-face, .back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+    background: lightblue;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .front-face {
