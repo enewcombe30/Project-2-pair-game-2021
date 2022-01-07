@@ -291,8 +291,9 @@ button:focus {
 .memory-card-easy:active,
 .memory-card-medium:active,
 .memory-card-hard:active {
-  transform: scale(.97);
-  transition: transform .2s;
+    transform: scale(.97);
+    -webkit-transform: scale(.97);
+    transition: transform .2s;
 }
 
 .memory-card-easy.flip,
