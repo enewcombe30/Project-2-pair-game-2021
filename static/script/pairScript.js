@@ -5,6 +5,7 @@ const homeControl = document.getElementById("home-control-bar");
 const optionControl = document.getElementById("option-control-bar");
 const gameContainer = document.getElementById("game-container");
 const diffContainer = document.getElementById("diff-container");
+const gameControls = document.getElementById("game-control-bar");
 
 const homeBtn = document.getElementById("home-btn");
 
@@ -126,8 +127,6 @@ function playSuccessSound() {
     successSound.play();
 }
 
-// follow for tips on adding sound effects https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/js/script.js
-
 
 // Difficulty settings 
 
@@ -138,27 +137,35 @@ const hardGame = document.getElementById("memory-game-hard");
 
 function playEasy() {
     diffContainer.classList.add("hide");
+    gameControls.classList.remove("hide");
     gameContainer.classList.remove("hide");
     easyGame.classList.remove("hide");
     medGame.classList.add("hide");
     hardGame.classList.add("hide");
+    easyCards.forEach(card => card.addEventListener('click', flipCard));
+    easyGame.addEventListener("click", startTimer, { once: true });
 }
 
 function playMed() {
     diffContainer.classList.add("hide");
+    gameControls.classList.remove("hide");
     easyGame.classList.add("hide");
     gameContainer.classList.remove("hide");
     medGame.classList.remove("hide");
     hardGame.classList.add("hide");
-
+    medCards.forEach(card => card.addEventListener('click', flipCard));
+    medGame.addEventListener("click", startTimer, { once: true });
 }
 
 function playHard() {
     diffContainer.classList.add("hide");
+    gameControls.classList.remove("hide");
     easyGame.classList.add("hide");
     medGame.classList.add("hide");
     gameContainer.classList.remove("hide");
-    hardGame.classList.remove("hide");  
+    hardGame.classList.remove("hide");
+    hardCards.forEach(card => card.addEventListener('click', flipCard));
+    hardGame.addEventListener("click", startTimer, { once: true });
 }
 
 // Card flipping, matching and resetting functions //
@@ -227,7 +234,7 @@ function resetBoard() {
 
 const resetBtn = document.getElementById("reset-btn");
 
-resetBtn.addEventListener('click', shuffleEasy);
+/*resetBtn.addEventListener('click', shuffleEasy);
 resetBtn.addEventListener('click', shuffleMedium);
 resetBtn.addEventListener('click', shuffleHard);
 
@@ -235,7 +242,7 @@ homeBtn.addEventListener('click', startAgain);
 resetBtn.addEventListener('click', startAgain);
 
 resetBtn.addEventListener('click', stopTimer);
-resetBtn.addEventListener('click', resetTimer);
+resetBtn.addEventListener('click', resetTimer);*/
 
 function startAgain() {
 
@@ -244,6 +251,7 @@ function startAgain() {
     stopTimer();
     resetTimer();
     origValues();
+    gameControls.classList.remove("hide");
     easyGame.addEventListener("click", startTimer, { once: true });
     medGame.addEventListener("click", startTimer, { once: true });
     hardGame.addEventListener("click", startTimer, { once: true });
@@ -260,6 +268,7 @@ function tryAgain() {
     shuffleMedium();
     shuffleHard();
     gameEnd.classList.add("hide");
+    gameControls.classList.remove("hide");
     easyGame.addEventListener("click", startTimer, { once: true });
     medGame.addEventListener("click", startTimer, { once: true });
     hardGame.addEventListener("click", startTimer, { once: true });
@@ -348,6 +357,7 @@ function timerCycle() {
         if (sec == 0) {
 
             stopTimer();
+            gameFail();
         }
         if (min == 01) {
             sec = 60;
@@ -397,9 +407,10 @@ function easyWin() {
         stopTimer();
         playSuccessSound();
         easyCards.forEach(card => card.removeEventListener('click', easyWin));
+        gameControls.classList.add("hide");
         gameEnd.classList.remove("hide");
         title.innerHTML = "Victory!";
-        score.innerHTML = "congratulations!! you scored " + sec * 25;
+        score.innerHTML = "You scored " + sec * 25;
     }
 }
 
@@ -411,9 +422,10 @@ function medWin() {
         stopTimer();
         playSuccessSound();
         medCards.forEach(card => card.removeEventListener('click', medWin));
-        title.innerHTML = "Victory!";
+        gameControls.classList.add("hide");
         gameEnd.classList.remove("hide");
-        score.innerHTML = "congratulations!! you scored " + sec * 50;
+        title.innerHTML = "Victory!";
+        score.innerHTML = "You scored " + sec * 50;
     }
 }
 
@@ -425,10 +437,22 @@ function hardWin() {
         stopTimer();
         playSuccessSound();
         hardCards.forEach(card => card.removeEventListener('click', hardWin));
-        title.innerHTML = "Victory!";
+        gameControls.classList.add("hide");
         gameEnd.classList.remove("hide");
-        score.innerHTML = "congratulations!! you scored " + sec * 100;
+        title.innerHTML = "Victory!";
+        score.innerHTML = "You scored" + sec * 100;
     }
 }
 
-//function gameFail() {}
+function gameFail() {
+    if (sec == 0) {
+        origValues();
+        stopTimer();
+        resetTimer();
+        playGameLose();
+        gameControls.classList.add("hide");
+        gameEnd.classList.remove("hide");
+        title.innerHTML = "You Lose ";
+        score.innerHTML = "Better luck next time!" ;
+    }
+}

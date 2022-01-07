@@ -113,35 +113,15 @@
                 <div class="game-control-bar" id="game-control-bar">
                     <div class="row">
                         <div class="col-1 col-sm-1"></div>
-                        <button class="col-4 col-sm-2" id="home-btn" onclick="homeFunction()">Home</button>
+                        <button class="col-4 col-sm-2" onclick="optionFunction()">Options</button> <!--Change to "options btn"-->
                         <div class="col-2 col-sm-2"></div>
-                        <button class=" col-4 col-sm-2" id="reset-btn" onclick="startAgain()">Restart</button>
+                        <button class=" col-4 col-sm-2" onclick="homeFunction()">Home</button>
                         <div class="col-3 col-sm-2"></div>
                         <div class="col-6 col-sm-3 ml-sm-5 mt-3 mt-sm-1" id="timer">01:00</div>
                         <div class="col-1 col-sm-1"></div>
                     </div>
                 </div>
-                <div class="game-end-bar hide" id="end-bar">
-                    <div class="row">
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4" id="end-title"><h1 style="padding-top:10%;"></h1></div>
-                        <div class="col-sm-4"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-5"></div>
-                        <div class="col-sm-2" id="score"></div>
-                        <div class="col-sm-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-2"></div>
-                        <button class="col-sm-2" onclick="homeFunction()">Home</button>
-                        <div class="col-sm-1"></div>
-                        <button class="col-sm-2" id="home-btn" onclick="startButton()">Change difficulty</button>
-                        <div class="col-sm-1"></div>
-                        <button class="col-sm-2" id="reset-btn" onclick="tryAgain()">Try again?</button>
-                        <div class="col-sm-2"></div>
-                    </div>
-                </div>
+                
 
                 <!-- Easy difficulty game -->
                 <div class="memory-game-easy hide" id="memory-game-easy">
@@ -325,7 +305,29 @@
                 </div>
                 <!--Add Restart container with button pop-up when game complete // default set to "hide"-->
             </div>
-            
+            <div class="game-end-bar hide" id="end-bar">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4" id="end-title"><h1 style="padding-top:10%;"></h1></div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2 col-sm-4"></div>
+                    <div class="col-8 col-sm-4" id="score"></div>
+                    <div class="col-2 col-sm-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-3 col-sm-1"></div>
+                    <button class="col-6 mt-5 col-sm-2  mt-sm-3" onclick="homeFunction()">Home</button>
+                    <div class="col-3 col-sm-1"></div>
+                    <div class="col-3 col-sm-1"></div>
+                    <button class="col-6 mt-5 col-sm-2  mt-sm-3" onclick="tryAgain()">Try again?</button>
+                    <div class="col-3 col-sm-1"></div>
+                    <div class="col-3 col-sm-1"></div>
+                    <button class="col-6 mt-4 col-sm-2 mt-sm-3" id="home-btn" onclick="startButton()">Change difficulty</button>
+                    <div class="col-3 col-sm-2"></div>
+                </div>
+            </div>
 
         </div>
         <footer>

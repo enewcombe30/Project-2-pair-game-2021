@@ -275,6 +275,17 @@ button:focus {
     transition: transform .5s;
 }
 
+#end-title {
+    font-size: 4vw;
+    font-weight: bolder;
+}
+
+#score {
+    flex-wrap:nowrap;
+    font-size: 3vw;
+    font-weight: bolder;
+}
+
 /* Card Flip and active CSS */
 
 .memory-card-easy:active,
@@ -328,9 +339,29 @@ button:focus {
     .game-control-bar{
         height:20vh;
     }
+    .game-end-bar {
+        top: 20vh;
+        width: 60vw;
+        height: 60vh;
+    }
+    #end-title{
+        font-size: 8vw;
+        
+    }
+    #score {
+        font-size: 5vw;
+        flex-wrap: wrap;
+    }
 }
 
 @media (min-width: 576px) {
+    #end-title{
+        font-size: 4vw;
+        flex-wrap: nowrap;
+    }
+    #score {
+        font-size: 3vw;
+    }
 }
 
 @media (min-width: 768px) {
@@ -343,6 +374,15 @@ button:focus {
     .game-control-bar {
         height: 15vh;
     }
+    .game-end-bar{
+        top: 30vh;
+        width: 60vw;
+        height: 45vh;
+    }
+    #score {
+        font-size: 1vw;
+    }
+    
 }
 
 @media (min-width: 1200px) {
