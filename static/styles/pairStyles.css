@@ -298,8 +298,9 @@ button:focus {
 .memory-card-easy.flip,
 .memory-card-medium.flip,
 .memory-card-hard.flip {
-  transform: rotateY(180deg);
-  transition: transform .2s;
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transition: transform .2s;
 }
  
 .front-face
