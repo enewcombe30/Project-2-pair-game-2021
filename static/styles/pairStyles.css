@@ -18,16 +18,6 @@ h1{
     padding: 2vh;
 }
 
-#hide,
-.hide {
-    display: none;
-}
-
-#show,
-.show {
-    display: block;
-}
-
 .background {
     background-image: url('../images/Game-images/leaves.jpg');
     background-repeat: no-repeat;
@@ -312,24 +302,21 @@ button:focus {
 }
 
 .front-face {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg); /*Added for use on iPhone and Safari*/
 }
 
-
-
-.footer {
-    background-image: linear-gradient(135deg, #393939, #090909);
-    color: #ffffff;
-    width: 100vw;
-    height: 4vh;
-    position: fixed;
-    top:96vh;
-    text-align: right;
-    padding-right: 30px;
-    z-index: 1000;
+#hide,
+.hide {
+    display: none;
 }
 
-/* All media breakpoints to work along side Bootstrap grid */
+#show,
+.show {
+    display: block;
+}
+
+/* All media breakpoints to work alongside Bootstrap grid */
 
 @media (max-width: 576px) {
     .home-control-bar,
@@ -359,4 +346,16 @@ button:focus {
 }
 
 @media (min-width: 1200px) {
+}
+
+.footer {
+    background-image: linear-gradient(135deg, #393939, #090909);
+    color: #ffffff;
+    width: 100vw;
+    height: 4vh;
+    position: fixed;
+    top:96vh;
+    text-align: right;
+    padding-right: 30px;
+    z-index: 1000;
 }
