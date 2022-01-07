@@ -82,7 +82,7 @@ h1{
     top: 3vh;
     right: 3vw;
     border-radius: 15%;
-    font-size: 28px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -111,7 +111,7 @@ h1{
     top: 3vh;
     right: 3vw;
     border-radius: 15%;
-    font-size: 28px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -168,7 +168,7 @@ button:focus {
     padding: 2vh 1vw 2vh 1vw;
     box-sizing: border-box;
     border-spacing: 2vw;
-    /*background-image: linear-gradient(135deg, #393939, #090909);*/
+    border-radius: 25px;
     background-color: black;
     color: whitesmoke;
     font-weight: bolder;
@@ -220,7 +220,7 @@ button:focus {
 
 .game-control-bar {
     width: 80vw;
-    height: 14vh;
+    height: 20vh;
     top: 5vh;
     left: 10vw;
     padding: 3vh;
@@ -301,8 +301,8 @@ button:focus {
   transition: transform .2s;
 }
  
-.front-face,
-.back-face{
+.front-face
+,.back-face{
   width:100%;
   height:100%;
   position: absolute;
@@ -332,31 +332,31 @@ button:focus {
 /* All media breakpoints to work along side Bootstrap grid */
 
 @media (max-width: 576px) {
-    #home-control-bar {
+    .home-control-bar,
+    .option-control-bar,
+    .diff-control-bar {
         top: 20vh;
         height: 55vh;
+    }
+    .game-control-bar{
+        height:20vh;
     }
 }
 
 @media (min-width: 576px) {
- }
+}
 
 @media (min-width: 768px) {
-    #home-control-bar {
+    .home-control-bar,
+    .option-control-bar,
+    .diff-control-bar {
         top: 30vh;
         height: 45vh;
     }
-}
-
-@media (min-width: 992px) {
-    #home-control-bar {
-        top: 30vh;
-        height: 45vh;
+    .game-control-bar {
+        height: 15vh;
     }
 }
 
 @media (min-width: 1200px) {
-}
-
-@media (min-width: 1400px) {
 }

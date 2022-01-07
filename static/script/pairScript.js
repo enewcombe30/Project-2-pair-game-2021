@@ -141,7 +141,6 @@ function playEasy() {
     easyGame.classList.remove("hide");
     medGame.classList.add("hide");
     hardGame.classList.add("hide");
-    easyCards.forEach(card => card.addEventListener('click', easyWin))
 }
 
 function playMed() {
