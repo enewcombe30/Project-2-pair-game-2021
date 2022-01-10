@@ -390,7 +390,7 @@ button:focus {
     .memory-card-hard {
         width: 19%;
     }
-} /* Adjustments for mobile device */
+} /* -- Adjustments for mobile device */
 
 @media (min-width: 576px) {
     #end-title{
@@ -400,7 +400,7 @@ button:focus {
     #score {
         font-size: 3vw;
     }
-} /* Adjustments for tablet devices */
+} /* -- Adjustments for tablet devices */
 
 @media (min-width: 768px) {
     .home-control-bar,
@@ -424,7 +424,7 @@ button:focus {
         width: 18%;
     }
     
-} /* Adjustments for smaller desktop and laptop */
+} /* -- Adjustments for smaller desktop and laptop */
 
 @media (min-width: 1200px) {
     .home-control-bar,
@@ -436,5 +436,5 @@ button:focus {
     #score {
         font-size: 3vw;
     }
-} /* Adjusments for larger desktop and laptop */
+} /* -- Adjusments for larger desktop and laptop */
 
