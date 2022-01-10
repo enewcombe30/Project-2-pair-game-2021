@@ -411,7 +411,7 @@ button:focus {
         height: 45vh;
     }
     #score {
-        font-size: 3vw;
+        font-size: 2vw;
     }
     .memory-card-hard {
         width: 18%;
@@ -425,6 +425,9 @@ button:focus {
     .diff-control-bar {
         top: 20vh;
         height: 45vh;
+    }
+    #score {
+        font-size: 3vw;
     }
 } /* Adjusments for larger desktop and laptop */
 
