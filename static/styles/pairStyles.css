@@ -1,3 +1,6 @@
+
+/* -------- Main body CSS tags -------- */
+
 html{
     padding: 0;
     margin: 0;
@@ -27,7 +30,7 @@ h1{
     perspective: 2000px;
 }
                                                           
-/* --------------- Game control div CSS ------------ */
+/* -------- Game control div CSS ------- */
 
 .home-control-bar {
     width: 80vw;
@@ -292,7 +295,7 @@ button:focus {
 .memory-card-medium:active,
 .memory-card-hard:active {
     transform: scale(.97);
-    -webkit-transform: scale(.97);
+    -webkit-transform: scale(.97); /*Added for use on iPhone and Safari*/
     transition: transform .2s;
     -webkit-transition: transform .2s;
 }
@@ -318,7 +321,7 @@ button:focus {
 
 .front-face {
     transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg); /*Added for use on iPhone and Safari*/
+    -webkit-transform: rotateY(180deg); 
 }
 
 #hide,
@@ -330,8 +333,6 @@ button:focus {
 .show {
     display: block;
 }
-
-/* All media breakpoints to work alongside Bootstrap grid */
 
 @media (max-width: 576px) {
     .home-control-bar,
@@ -353,10 +354,10 @@ button:focus {
         
     }
     #score {
-        font-size: 5vw;
+        font-size: 3vw;
         flex-wrap: wrap;
     }
-}
+} /* Adjustments for mobile device */
 
 @media (min-width: 576px) {
     #end-title{
@@ -366,7 +367,7 @@ button:focus {
     #score {
         font-size: 3vw;
     }
-}
+} /* Adjustments for tablet devices */
 
 @media (min-width: 768px) {
     .home-control-bar,
@@ -387,10 +388,16 @@ button:focus {
         font-size: 3vw;
     }
     
-}
+} /* Adjustments for smaller desktop and laptop */
 
 @media (min-width: 1200px) {
-}
+    .home-control-bar,
+    .option-control-bar,
+    .diff-control-bar {
+        top: 20vh;
+        height: 45vh;
+    }
+} /* Adjusments for larger desktop and laptop */
 
 .footer {
     background-image: linear-gradient(135deg, #393939, #090909);
