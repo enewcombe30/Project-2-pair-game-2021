@@ -1,5 +1,5 @@
 
-/* -------- Main body CSS tags -------- */
+/* ---------- Main body CSS tags ---------- */
 
 html{
     padding: 0;
@@ -29,8 +29,8 @@ h1{
     width: 100vw;
     perspective: 2000px;
 }
-                                                          
-/* -------- Game control div CSS ------- */
+
+/* ---------- Game control div CSS ---------- */
 
 .home-control-bar {
     width: 80vw;
@@ -170,7 +170,7 @@ button:focus {
     box-shadow: rgba(0,0,0,0.4) 5px 5px 5px 5px;
 }
 
-/* --------------- "How To?" Modal CSS ------------- */
+/* ---------- "How To?" Modal CSS ---------- */
 
 .modal {
     position: absolute;
@@ -204,7 +204,7 @@ button:focus {
      cursor: pointer;
  }
 
-/* --------------- Game container CSS ---------------*/
+/* ---------- Game container CSS ---------- */
 
 .game-container {    
     width: 100vw;
@@ -246,16 +246,19 @@ button:focus {
     bottom: 5%;
 }
 
-/* card sizing by difficulty */
+/* ---------- card sizing by difficulty ---------- */
 
-.memory-card-easy{
-  width:23%;
-  height: 30%;
-  margin:1%;
-  position: relative;
-  transform: scale(1);
-  transform-style: preserve-3d;
-  transition: transform .5s;
+.memory-card-easy {
+    width: 23%;
+    height: 30%;
+    margin: 1%;
+    position: relative;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform .5s;
+    -webkit-transition: transform .5s;
 }
 
 .memory-card-medium {
@@ -264,8 +267,11 @@ button:focus {
     margin: 1%;
     position: relative;
     transform: scale(1);
+    -webkit-transform: scale(1);
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     transition: transform .5s;
+    -webkit-transition: transform .5s;
 }
 
 .memory-card-hard {
@@ -274,8 +280,11 @@ button:focus {
     margin: 1%;
     position: relative;
     transform: scale(1);
+    -webkit-transform: scale(1);
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     transition: transform .5s;
+    -webkit-transition: transform .5s;
 }
 
 #end-title {
@@ -289,7 +298,7 @@ button:focus {
     font-weight: bolder;
 }
 
-/* Card Flip and active CSS */
+/* ---------- Card Flip and active CSS ---------- */
 
 .memory-card-easy:active,
 .memory-card-medium:active,
@@ -334,6 +343,20 @@ button:focus {
     display: block;
 }
 
+.footer {
+    background-image: linear-gradient(135deg, #393939, #090909);
+    color: #ffffff;
+    width: 100vw;
+    height: 4vh;
+    position: fixed;
+    top: 96vh;
+    text-align: right;
+    padding-right: 30px;
+    z-index: 1000;
+}
+
+/* ---------- @media breakpoints ---------- */
+
 @media (max-width: 576px) {
     .home-control-bar,
     .option-control-bar,
@@ -356,6 +379,9 @@ button:focus {
     #score {
         font-size: 3vw;
         flex-wrap: wrap;
+    }
+    .memory-card-hard {
+        width: 19%;
     }
 } /* Adjustments for mobile device */
 
@@ -387,6 +413,9 @@ button:focus {
     #score {
         font-size: 3vw;
     }
+    .memory-card-hard {
+        width: 18%;
+    }
     
 } /* Adjustments for smaller desktop and laptop */
 
@@ -399,14 +428,3 @@ button:focus {
     }
 } /* Adjusments for larger desktop and laptop */
 
-.footer {
-    background-image: linear-gradient(135deg, #393939, #090909);
-    color: #ffffff;
-    width: 100vw;
-    height: 4vh;
-    position: fixed;
-    top:96vh;
-    text-align: right;
-    padding-right: 30px;
-    z-index: 1000;
-}

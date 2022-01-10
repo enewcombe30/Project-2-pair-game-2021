@@ -1,17 +1,43 @@
 
-// Initial const values 
+// ---------- Game containers and controls const ---------- // 
 
 const homeControl = document.getElementById("home-control-bar");
 const optionControl = document.getElementById("option-control-bar");
 const gameContainer = document.getElementById("game-container");
 const diffContainer = document.getElementById("diff-container");
 const gameControls = document.getElementById("game-control-bar");
+const easyGame = document.getElementById("memory-game-easy");
+const medGame = document.getElementById("memory-game-medium");
+const hardGame = document.getElementById("memory-game-hard");
+
+// --------- Buttons and event controls const  ----------- //
 
 const homeBtn = document.getElementById("home-btn");
+const easyDiff = document.getElementById("easy-btn");
+const medDiff = document.getElementById("med-btn");
+const hardDiff = document.getElementById("hard-btn");
+const musicBtn = document.getElementById("music-btn");
+const SFXBtn = document.getElementById("SFX-btn");
+const allBtn = document.querySelectorAll("button");
+
+// ---------- Music, SFX and timer elements ---------- // 
+
+const bMusic = document.getElementById("audio");
+const btnClick = document.getElementById("btn-click");
+const matchSound = document.getElementById("flip-sound");
+const gameLose = document.getElementById("game-lose");
+const successSound = document.getElementById("success");
+
+const timer = document.getElementById('timer');
 
 
+// --------- Game end container and score elements ---------- //
 
-/////////  How to button Script that creates modal ////////////
+const gameEnd = document.getElementById("end-bar");
+const title = document.getElementById("end-title");
+const score = document.getElementById("score");
+
+// ----------  How to button Script that creates modal ---------- //
 
 var modal = document.getElementById("how-modal");
 var howBtn = document.getElementById("how-btn");
@@ -30,7 +56,7 @@ window.onclick = function (event) {
 }
 
 
-//////// Hide control functions /////////
+// ---------- Game container hide and show functions ---------- //
 
 function homeFunction() {
     homeControl.classList.remove("hide");
@@ -58,17 +84,12 @@ function startButton() {
     resetTimer();
 }
 
-//////// Audio Functions /////////
-
-const bMusic = document.getElementById("audio");
-const musicBtn = document.getElementById("music-btn");
-const allBtn = document.querySelectorAll("button");
-const SFXBtn = document.getElementById("SFX-btn");
-
+// ---------- Audio and SFX functions ---------- //
 
 homeControl.addEventListener("click", toggleMusic, { once: true });
 musicBtn.addEventListener("click", toggleMusic);
 SFXBtn.addEventListener("click", toggleSFX);
+allBtn.forEach(button => button.addEventListener("click", playButtonClick));
 
 function toggleMusic() {
     if (bMusic.paused) {
@@ -101,19 +122,10 @@ function toggleSFX() {
     }
 
 }
-        
-
-const btnClick = document.getElementById("btn-click");
-const matchSound = document.getElementById("flip-sound");
-const gameLose = document.getElementById("game-lose");
-const successSound = document.getElementById("success");
-
 
 function playButtonClick() {
     btnClick.play();
 }
-
-allBtn.forEach(button => button.addEventListener("click", playButtonClick));
 
 function playMatchSound() {
     matchSound.play();
@@ -128,12 +140,7 @@ function playSuccessSound() {
 }
 
 
-// Difficulty settings 
-
-const easyGame = document.getElementById("memory-game-easy");
-const medGame = document.getElementById("memory-game-medium");
-const hardGame = document.getElementById("memory-game-hard");
-
+// ---------- Difficulty settings ---------- //
 
 function playEasy() {
     diffContainer.classList.add("hide");
@@ -168,15 +175,17 @@ function playHard() {
     hardGame.addEventListener("click", startTimer, { once: true });
 }
 
-// Card flipping, matching and resetting functions //
+// ---------- Card flipping, matching and resetting functions ---------- //
 
-const easyCards = document.querySelectorAll('.memory-card-easy');
-const medCards = document.querySelectorAll('.memory-card-medium');
-const hardCards = document.querySelectorAll('.memory-card-hard');
+// Card flipping script sourced from : https://www.youtube.com/watch?v=ZniVgo8U7ek 
 
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
+var easyCards = document.querySelectorAll('.memory-card-easy');
+var medCards = document.querySelectorAll('.memory-card-medium');
+var hardCards = document.querySelectorAll('.memory-card-hard');
+
+var hasFlippedCard = false;
+var lockBoard = false;
+var firstCard, secondCard;
 
 function flipCard() {
     if (lockBoard) return;
@@ -194,6 +203,10 @@ function flipCard() {
         secondCard = this;
         checkForMatch();
 }
+
+easyCards.forEach(card => card.addEventListener('click', flipCard));
+medCards.forEach(card => card.addEventListener('click', flipCard));
+hardCards.forEach(card => card.addEventListener('click', flipCard));
 
 function checkForMatch() {
     if (firstCard.dataset.framework === secondCard.dataset.framework) {
@@ -230,19 +243,7 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
-// reset button function to reshuffle cards in difficulty class 
-
-const resetBtn = document.getElementById("reset-btn");
-
-/*resetBtn.addEventListener('click', shuffleEasy);
-resetBtn.addEventListener('click', shuffleMedium);
-resetBtn.addEventListener('click', shuffleHard);
-
-homeBtn.addEventListener('click', startAgain);
-resetBtn.addEventListener('click', startAgain);
-
-resetBtn.addEventListener('click', stopTimer);
-resetBtn.addEventListener('click', resetTimer);*/
+// ---------- Functions to restart and reset board ---------- //
 
 function startAgain() {
 
@@ -287,11 +288,7 @@ function origValues() {
 
 }
 
-// shuffle functions for each difficulty //
-
-const easyDiff = document.getElementById("easy-btn");
-const medDiff = document.getElementById("med-btn");
-const hardDiff = document.getElementById("hard-btn");
+// ---------- shuffle functions for each difficulty ---------- //
 
 easyDiff.addEventListener('click', shuffleEasy);
 medDiff.addEventListener('click', shuffleMedium);
@@ -318,17 +315,10 @@ function shuffleHard() {
     });
 }
 
-easyCards.forEach(card => card.addEventListener('click', flipCard));
-medCards.forEach(card => card.addEventListener('click', flipCard));
-hardCards.forEach(card => card.addEventListener('click', flipCard));
 
-//////// Timer Function with start function on first click //////
+// ---------- Timer Function with start function on first click ---------- //
 
-/*stopwatch timer sourced  https://dev.to/gspteck/create-a-stopwatch-in-javascript-2mak */
-
-
-
-const timer = document.getElementById('timer');
+// stopwatch timer sourced  https://dev.to/gspteck/create-a-stopwatch-in-javascript-2mak 
 
 var min = 0;
 var sec = 60;
@@ -352,7 +342,7 @@ function timerCycle() {
         sec = parseInt(sec);
         min = parseInt(min);
 
-        sec = sec - 1;
+        sec = sec - 1; // timer count changed from + to - .
 
         if (sec == 0) {
 
@@ -383,16 +373,14 @@ function resetTimer() {
     timer.innerHTML = '01:00';
 }
 
-const gameEnd = document.getElementById("end-bar");
-const title = document.getElementById("end-title");
-const score = document.getElementById("score");
+// --------- Game win and fail functions and event listeners --------- //
 
-const gameParentEasy = document.getElementById("memory-game-easy");
-const matchedEasy = gameParentEasy.getElementsByClassName("match");
+var gameParentEasy = document.getElementById("memory-game-easy"); 
+var matchedEasy = gameParentEasy.getElementsByClassName("match");
 easyCards.forEach(card => card.addEventListener('click', easyWin));
 
-const gameParentMed = document.getElementById("memory-game-medium");
-const matchedMed = gameParentMed.getElementsByClassName("match");
+var gameParentMed = document.getElementById("memory-game-medium");
+var matchedMed = gameParentMed.getElementsByClassName("match");
 medCards.forEach(card => card.addEventListener('click', medWin));
 
 var gameParentHard = document.getElementById("memory-game-hard");
@@ -410,7 +398,7 @@ function easyWin() {
         gameControls.classList.add("hide");
         gameEnd.classList.remove("hide");
         title.innerHTML = "Success!";
-        score.innerHTML = "You scored " + sec * 25;
+        score.innerHTML = "You scored " + sec * 10;
     }
 }
 
@@ -425,7 +413,7 @@ function medWin() {
         gameControls.classList.add("hide");
         gameEnd.classList.remove("hide");
         title.innerHTML = "Success!";
-        score.innerHTML = "You scored " + sec * 50;
+        score.innerHTML = "You scored " + sec * 20;
     }
 }
 
@@ -440,7 +428,7 @@ function hardWin() {
         gameControls.classList.add("hide");
         gameEnd.classList.remove("hide");
         title.innerHTML = "Success!";
-        score.innerHTML = "You scored" + sec * 100;
+        score.innerHTML = "You scored `+ sec * 100`!";
     }
 }
 
