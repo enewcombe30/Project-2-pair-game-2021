@@ -409,7 +409,7 @@ function easyWin() {
         easyCards.forEach(card => card.removeEventListener('click', easyWin));
         gameControls.classList.add("hide");
         gameEnd.classList.remove("hide");
-        title.innerHTML = "Victory!";
+        title.innerHTML = "Success!";
         score.innerHTML = "You scored " + sec * 25;
     }
 }
@@ -424,7 +424,7 @@ function medWin() {
         medCards.forEach(card => card.removeEventListener('click', medWin));
         gameControls.classList.add("hide");
         gameEnd.classList.remove("hide");
-        title.innerHTML = "Victory!";
+        title.innerHTML = "Success!";
         score.innerHTML = "You scored " + sec * 50;
     }
 }
@@ -439,7 +439,7 @@ function hardWin() {
         hardCards.forEach(card => card.removeEventListener('click', hardWin));
         gameControls.classList.add("hide");
         gameEnd.classList.remove("hide");
-        title.innerHTML = "Victory!";
+        title.innerHTML = "Success!";
         score.innerHTML = "You scored" + sec * 100;
     }
 }

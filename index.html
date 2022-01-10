@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Memory Game</title>
     <link rel="icon" type="image/x-icon" href="static/images/Game-images/tikiVJS.png" />
@@ -21,16 +21,16 @@
                     <div class="controls">
                         <div class="row">
                             <!--For each button modal https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal&stacked=h -->
-                            <div class="col-3 col-sm-4"></div>
-                            <button class="col-6 col-sm-4 mb-1 mt-3 mt-sm-1" id="start-btn" onclick="startButton()">Start!</button>
-                            <div class="col-3 col-sm-4"></div>
+                            <div class="col-3 col-md-4"></div>
+                            <button class="col-6 col-md-4 mb-1 mt-3 mt-md-1" id="start-btn" onclick="startButton()">Start!</button>
+                            <div class="col-3 col-md-4"></div>
                         </div>
                         <div class="row">
-                            <div class="col-3 col-sm-2"></div>
-                            <button class="col-6 col-sm-3 mb-3 mt-3 mt-sm-2" id="option-btn" onclick="optionFunction()">Options</button>
-                            <div class="col-3 col-sm-1"></div>
-                            <div class="col-3 col-sm-1"></div>
-                            <button class="col-6 col-sm-3 mb-3 mt-3 mt-sm-2" id="how-btn">How To</button>
+                            <div class="col-3 col-md-2"></div>
+                            <button class="col-6 col-md-3 mb-3 mt-3 mt-md-2" id="option-btn" onclick="optionFunction()">Options</button>
+                            <div class="col-3 col-md-1"></div>
+                            <div class="col-3 col-md-1"></div>
+                            <button class="col-6 col-md-3 mb-3 mt-3 mt-md-2" id="how-btn">How To</button>
                             <div id="how-modal" class="modal">
                                 <div class="modal-content">
                                     <span class="close">&times;</span>
@@ -47,7 +47,7 @@
                                     <p>Match all the pairs to win the game!!</p>
                                 </div>
                             </div>
-                            <div class="col-3 col-sm-2"></div>
+                            <div class="col-3 col-md-2"></div>
                         </div>
                     </div>
                 </div>
@@ -61,14 +61,14 @@
                 <br />
                 <div class="option-controls">
                     <div class="row">
-                        <div class="col-3 col-sm-2"></div>
-                        <button class="col-6 col-sm-3 mb-3 mt-4 mt-sm-3" id="music-btn">...</button>
+                        <div class="col-3 col-md-2"></div>
+                        <button class="col-6 col-md-3 mb-3 mt-4 mt-md-3" id="music-btn">...</button>
                         <!-- Music hidden, looped and set to autostart -->
                         <audio src="static/sounds/Music/GlimmerMan.mp3" id="audio" loop="loop">
                         </audio>
-                        <div class="col-3 col-sm-1"></div>
-                        <div class="col-3 col-sm-1"></div>
-                        <button class="col-6 col-sm-3 mb-3 mt-5 mt-sm-3" id="SFX-btn">SFX OFF</button>
+                        <div class="col-3 col-md-1"></div>
+                        <div class="col-3 col-md-1"></div>
+                        <button class="col-6 col-md-3 mb-3 mt-5 mt-md-3" id="SFX-btn">SFX OFF</button>
                         <audio id="btn-click" volume="1">
                             <source src="static/sounds/SFX/button-click-sound-effect.mp3" />
                         </audio>
@@ -81,7 +81,7 @@
                         <audio id="flip-sound" volume="1">
                             <source src="static/sounds/SFX/bonk-sound-effect.mp3" />
                         </audio>
-                        <div class="col-3 col-sm-2"></div>
+                        <div class="col-3 col-md-2"></div>
                     </div>
                 </div>
             </div>
@@ -93,15 +93,15 @@
                 <br />
                 <br />
                 <div class="row">
-                    <div class="col-3 col-sm-1"></div>
-                    <button class="col-6 col-sm-2 mb-4 mb-sm-2 set-diff" id="easy-btn" onclick="playEasy()">Easy</button>
-                    <div class="col-3 col-sm-1"></div>
-                    <div class="col-3 col-sm-1"></div>
-                    <button class="col-6 col-sm-2 mb-4 mb-sm-2 set-diff" id="med-btn" onclick="playMed()">Medium</button>
-                    <div class="col-3 col-sm-1"></div>
-                    <div class="col-3 col-sm-1"></div>
-                    <button class="col-6 col-sm-2 mb-4 mb-sm-2 set-diff" id="hard-btn" onclick="playHard()">Hard</button>
-                    <div class="col-3 col-sm-1"></div>
+                    <div class="col-3 col-md-1"></div>
+                    <button class="col-6 col-md-2 mb-4 mb-md-2 set-diff" id="easy-btn" onclick="playEasy()">Easy</button>
+                    <div class="col-3 col-md-1"></div>
+                    <div class="col-3 col-md-1"></div>
+                    <button class="col-6 col-md-2 mb-4 mb-md-2 set-diff" id="med-btn" onclick="playMed()">Medium</button>
+                    <div class="col-3 col-md-1"></div>
+                    <div class="col-3 col-md-1"></div>
+                    <button class="col-6 col-md-2 mb-4 mb-md-2 set-diff" id="hard-btn" onclick="playHard()">Hard</button>
+                    <div class="col-3 col-md-1"></div>
                 </div>
                 <br />
             </div>
@@ -112,13 +112,13 @@
             <div class="game-container hide" id="game-container">
                 <div class="game-control-bar" id="game-control-bar">
                     <div class="row">
-                        <div class="col-1 col-sm-1"></div>
-                        <button class="col-4 col-sm-2" onclick="optionFunction()">Options</button> <!--Change to "options btn"-->
-                        <div class="col-2 col-sm-2"></div>
-                        <button class=" col-4 col-sm-2" onclick="homeFunction()">Home</button>
-                        <div class="col-3 col-sm-2"></div>
-                        <div class="col-6 col-sm-3 ml-sm-5 mt-3 mt-sm-1" id="timer">01:00</div>
-                        <div class="col-1 col-sm-1"></div>
+                        <div class="col-1 col-md-1"></div>
+                        <button class="col-4 col-md-2" onclick="optionFunction()">Options</button> <!--Change to "options btn"-->
+                        <div class="col-2 col-md-2"></div>
+                        <button class=" col-4 col-md-2" onclick="homeFunction()">Home</button>
+                        <div class="col-3 col-md-2"></div>
+                        <div class="col-6 col-md-3 ml-m-5 mt-3 mt-md-1" id="timer">01:00</div>
+                        <div class="col-1 col-md-1"></div>
                     </div>
                 </div>
                 
@@ -312,20 +312,20 @@
                     <div class="col-sm-4"></div>
                 </div>
                 <div class="row">
-                    <div class="col-2 col-sm-4"></div>
-                    <div class="col-8 col-sm-4" id="score"></div>
-                    <div class="col-2 col-sm-4"></div>
+                    <div class="col-2 col-md-4"></div>
+                    <div class="col-8 col-md-4" id="score"></div>
+                    <div class="col-2 col-md-4"></div>
                 </div>
                 <div class="row">
-                    <div class="col-3 col-sm-1"></div>
-                    <button class="col-6 mt-5 col-sm-2  mt-sm-3" onclick="homeFunction()">Home</button>
-                    <div class="col-3 col-sm-1"></div>
-                    <div class="col-3 col-sm-1"></div>
-                    <button class="col-6 mt-5 col-sm-2  mt-sm-3" onclick="tryAgain()">Try again?</button>
-                    <div class="col-3 col-sm-1"></div>
-                    <div class="col-3 col-sm-1"></div>
-                    <button class="col-6 mt-4 col-sm-2 mt-sm-3" id="home-btn" onclick="startButton()">Change difficulty</button>
-                    <div class="col-3 col-sm-2"></div>
+                    <div class="col-3 col-md-1"></div>
+                    <button class="col-6 mt-5 col-md-2  mt-md-3" onclick="homeFunction()">Home</button>
+                    <div class="col-3 col-md-1"></div>
+                    <div class="col-3 col-md-1"></div>
+                    <button class="col-6 mt-5 col-md-2  mt-md-3" onclick="tryAgain()">Try again?</button>
+                    <div class="col-3 col-md-1"></div>
+                    <div class="col-3 col-md-1"></div>
+                    <button class="col-6 mt-4 col-md-2 mt-md-3" id="home-btn" onclick="startButton()">Change difficulty</button>
+                    <div class="col-3 col-md-2"></div>
                 </div>
             </div>
 
