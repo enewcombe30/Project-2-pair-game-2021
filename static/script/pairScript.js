@@ -1,5 +1,6 @@
+/* jshint esversion: 6 */ 
 
-// ---------- Game containers and controls const ---------- // 
+// ---------- Game containers and controls const ---------- //
 
 const homeControl = document.getElementById("home-control-bar");
 const optionControl = document.getElementById("option-control-bar");
@@ -45,15 +46,17 @@ var span = document.getElementsByClassName("close")[0];
 
 howBtn.onclick = function () {
     modal.style.display = "block";
-}
+};
+
 span.onclick = function () {
     modal.style.display = "none";
-}
+};
+
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
+};
 
 
 // ---------- Game container hide and show functions ---------- //
@@ -363,7 +366,7 @@ function timerCycle() {
 
         timer.innerHTML = min + ':' + sec;
 
-        setTimeout("timerCycle()", 1000);
+        setTimeout("timerCycle();", 1000); //jshint ignore:line
     }
 }
 
