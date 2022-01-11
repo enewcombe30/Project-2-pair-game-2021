@@ -123,6 +123,18 @@ h1{
     color: cornsilk;
 }
 
+#end-title {
+    font-size: 4vw;
+    font-weight: bolder;
+    padding-top: 10%;
+}
+
+#score {
+    flex-wrap: nowrap;
+    font-size: 3vw;
+    font-weight: bolder;
+}
+
 .row {
     margin: 3vh;
 }
@@ -293,17 +305,7 @@ button:focus {
     -webkit-transition: transform .5s;
 }
 
-#end-title {
-    font-size: 4vw;
-    font-weight: bolder;
-    padding-top: 10%;
-}
 
-#score {
-    flex-wrap:nowrap;
-    font-size: 3vw;
-    font-weight: bolder;
-}
 
 /* ---------- Card Flip and active CSS ---------- */
 
@@ -384,15 +386,21 @@ button:focus {
         
     }
     #score {
-        font-size: 3vw;
+        font-size: 4vw;
         flex-wrap: wrap;
     }
     .memory-card-hard {
-        width: 19%;
+        width: 18%;
     }
 } /* -- Adjustments for mobile device */
 
 @media (min-width: 576px) {
+    .home-control-bar,
+    .option-control-bar,
+    .diff-control-bar {
+        top: 20vh;
+        height: 50vh;
+    }
     #end-title{
         font-size: 4vw;
         flex-wrap: nowrap;

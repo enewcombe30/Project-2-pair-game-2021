@@ -29,8 +29,6 @@ const matchSound = document.getElementById("flip-sound");
 const gameLose = document.getElementById("game-lose");
 const successSound = document.getElementById("success");
 
-const timer = document.getElementById('timer');
-
 
 // --------- Game end container and score elements ---------- //
 
@@ -39,6 +37,8 @@ const title = document.getElementById("end-title");
 const score = document.getElementById("score");
 
 // ----------  How to button Script that creates modal ---------- //
+
+// ----- modal JS sourced here https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal&stacked=h ----- //
 
 var modal = document.getElementById("how-modal");
 var howBtn = document.getElementById("how-btn");
@@ -250,8 +250,8 @@ function resetBoard() {
 
 function startAgain() {
 
-    $(".flip").removeClass('flip');
-    $(".match").removeClass('match');
+    $(".flip").removeClass('flip');              // Use of jQuery 
+    $(".match").removeClass('match');            // Use of jQuery 
     stopTimer();
     resetTimer();
     origValues();
@@ -263,8 +263,8 @@ function startAgain() {
 
 function tryAgain() {
 
-    $(".flip").removeClass('flip');
-    $(".match").removeClass('match');
+    $(".flip").removeClass('flip');             // Use of jQuery 
+    $(".match").removeClass('match');           // Use of jQuery 
     stopTimer();
     resetTimer();
     origValues();
@@ -327,6 +327,8 @@ var min = 0;
 var sec = 60;
 var stoptime = true;
 
+var timer = document.getElementById('timer');
+
 function startTimer() {
     if (stoptime == true) {
         stoptime = false;
@@ -368,7 +370,7 @@ function timerCycle() {
 
         setTimeout("timerCycle();", 1000); //jshint ignore:line
     }
-}
+};
 
 function resetTimer() {
     stopTimer();
