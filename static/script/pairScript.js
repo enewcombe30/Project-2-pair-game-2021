@@ -433,7 +433,7 @@ function hardWin() {
         gameControls.classList.add("hide");
         gameEnd.classList.remove("hide");
         title.innerHTML = "Success!";
-        score.innerHTML = "You scored `+ sec * 100`!";
+        score.innerHTML = "You scored " + sec * 100;
     }
 }
 

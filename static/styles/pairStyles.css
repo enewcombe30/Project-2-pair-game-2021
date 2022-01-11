@@ -112,7 +112,7 @@ h1{
     top: 30vh;
     left: 20vw;
     position: absolute;
-    padding-top: 3vh;
+    /*padding-top: 3vh;*/
     padding-bottom: 3vh;
     align-self: center;
     text-align: center;
@@ -126,7 +126,6 @@ h1{
 #end-title {
     font-size: 4vw;
     font-weight: bolder;
-    padding-top: 10%;
 }
 
 #score {
@@ -305,8 +304,6 @@ button:focus {
     -webkit-transition: transform .5s;
 }
 
-
-
 /* ---------- Card Flip and active CSS ---------- */
 
 .memory-card-easy:active,
@@ -438,11 +435,11 @@ button:focus {
     .home-control-bar,
     .option-control-bar,
     .diff-control-bar {
-        top: 20vh;
+        top: 30vh;
         height: 45vh;
     }
     #score {
-        font-size: 3vw;
+        font-size: 2vw;
     }
 } /* -- Adjusments for larger desktop and laptop */
 
