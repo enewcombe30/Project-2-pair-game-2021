@@ -24,13 +24,12 @@ ___
 # [Project Overview](#project-overview) 
 ### [About my project](#about-my-project)
 ___
-For this project I opted to build a pair game using HTML, CSS, Javascript and Bootstrap, whilst implementing minimal jQuery. 
+For this project I opted to build a pair game using HTML, CSS, Javascript and Bootstrap with minimal jQuery. 
 
 I decided to keep the general theme similar to my portfolio so that anyone viewing the portfolio would be navigated to seemlessly to my project.
 
 The project itself has been designed to present different combinations of card layouts and different difficulties to add longevity to the game. 
 
-As 
 
 ### [Taking on the challenge](#the-challenge)
 ___ 
@@ -61,7 +60,7 @@ ___
 https://www.w3schools.com/css/default.asp , 
 https://www.w3schools.com/js/default.asp 
 
-##### *I have included this link as w3school was regularly referenced thoughout the design and buil of this webpage*
+##### *I have included this link as w3school was regularly referenced thoughout the design and build of this webpage*
 ___
 - **Bootstrap Modal** - https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal&stacked=h
 ___
@@ -79,16 +78,16 @@ ___
 # [Usability and Visual Impact:](#impact)
 ### [UX design](#ux-design)
 ___
-User experience has been at the forefront when designing this project. 
+UX has been at the forefront when designing this project. 
 
-Like most people I have played many online memory games and feel this project provides added playability which keeps users coming back for more. 
+Like most people I have played many online memory games and feel this projects difficulty settings provide added playability which keeps users coming back for more. 
 
-Inkeeping with the theme of my portfolio, I have used a variety of tiki heads which I sourced when first building my first project. 
+In keeping with the theme of my portfolio, I have used a variety of tiki heads which I sourced when first building my first project. 
 
 [Navigation](#navigation)
 ___ 
 
-In my first portfolio I used **[Bootstrap](https://getbootstrap.com/)** to create a navigation bar so for this project I decided to make use of **show** / **hide** display CSS functions combined with **onclick** event listeners in **Javascript**. 
+In my first portfolio I used **[Bootstrap](https://getbootstrap.com/)** to create a navigation bar so, for this project I decided to make use of **show** / **hide** display CSS functions combined with **onclick** event listeners in **Javascript**. 
 
 The major issues with this are being able to navigate both forwards and backwards with as few clicks as possible which I addressed by adding **"Close"** and **"Home"** buttons to control bars to keep navigation smooth.
 
@@ -107,11 +106,13 @@ To address the multi platform needs of modern webpages, I have used **[Bootstrap
 |Extra large|≥1200px|Large Screen|
 
 By using the **[Bootstrap](https://getbootstrap.com/)** grid system, margin (m) and padding (p) I have reduced the amount of CSS needed to create the desired effect therefore reducing the lines of physical code and making future debugging issues easier to identify. 
+___
 
 ### [Image and Colour Theme](#colour-typography)
 ___
 
 As this project will be linked to my first **[portfolio](https://enewcombe30.github.io/Portfolio-2021/)**, I have used the same background image to ensure smooth transitions between the projects. For this reason I have also used tiki images for the card faces from my portfolio.  
+___
 
 # [Software Development practices:](#software-dev)
 
@@ -133,6 +134,7 @@ ___
 ### [Deployment implementation](#deployment)
 ___
 This web page has been deployed using **[Github pages](https://pages.github.com/)** 
+___
 
 # [Testing practices](#testing)
 
@@ -159,91 +161,5 @@ When performing this validation, a few errors occured. These errors are listed b
     * *Added __"`;`"__ to lines 49, 53, 59 and 367*
     * *Validator suggests passing a function instead of string so added line "//jshint ignore:line"*
     * *Error still showing that "timerCycle()" is not defined in validator - solution needed*
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-### Commentary:
-- To present the 'How to' section of my project, I decided to use a modal and add a close button. Help on how to implement this was found through the below link: 
-https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal&stacked=h .
-- All game functionality has been created using Javascript.
-- All work has been regularly committed using Github and Visual Studios.
 ___
- ## Up for a challenge? (optional)
-- _(brief)_ You may include background audio/sound effects but make sure there are controls to pause and play the audio on either project ideas.
-- _(brief)_ You can include difficulty levels for the user to specify at the beginning on either project ideas.
-### commentary:
-- I have included both background music and sound effects to the webpage. 
-For the music I have used an MP3 called "Glimmer Man" created and produced by a friend. 
-All other sound effects were sourced from: 
-http://www.freesoundslibrary.com . 
-- Each difficulty levelhas been given a 1 minute time limit to match all pairs.
-- **Easy difficulty** - consists of 8 cards 4 card pairs.
-- **Medium difficulty** - consists of 12 cards 6 card pairs.
-- **Hard difficulty** - consists of 20 cards 10 card pairs.
-# Mandatory Requirements for your JavaScript front end project:
-## Information Architecture:
-- _(brief)_ Incorporate a main navigation menu and structured layout.
-- _(brief)_ Incorporate a footer at the bottom of each page.
-### commentary: 
-- For this project I have made use of the show and hide functions to navigate the webpage with a'Home' button available at every stage for a smoother UX. 
-- Considering the webpage only uses one HTML document (index.HTML), the footer has been attached to this and is visible at every irrespective of user interaction. 
-___ 
- ## Attribution:
-- _(brief)_ Maintain clear separation between code written by you and code from external sources using
-clear comments. Include the url of where you found the code (e.g. libraries or tutorials).
-### commentary: 
-- All links are listed **before** the blocks respective blocks of code. W3school was also regularly referenced. 
-See full list here: 
-- **W3School** - https://www.w3schools.com/html/default.asp ,
-https://www.w3schools.com/css/default.asp , 
-https://www.w3schools.com/js/default.asp 
-- **Bootstrap Modal** - https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal&stacked=h
-- **Basic Card flipping and matching** - https://www.youtube.com/watch?v=ZniVgo8U7ek
-- **Sound Effects** - http://www.freesoundslibrary.com
-- **Stopwatch timer** - https://dev.to/gspteck/create-a-stopwatch-in-javascript-2mak 
-## Documentation:
-- _(brief)_ Write a README.md file for your project that explains what the project does and the value that it provides to its users. Attribute any code from other sources. Document all testing procedures and findings.
-- Use ‘markdown’ when writing your README.md file.
-ntrol:
-- _(brief)_ Use Git & GitHub for version control.
-creating your project.
-### Commentary 
-- For this project this file (README.md) has been created using 'markdown'.
-- Git & Github have been used throughout creation of this project with work being regularly commited. Unfortunately the regular commiting of work started a short while after the document had been created. Therefore, the first commit of this project was pushed at an advanced stage resulting in fewer commits throughout the process.
-## Deployment:
-- _(brief)_ Deploy the final version of your code to a hosting platform such as GitHub Pages.
-
-## Testing:
-- Make sure to run your code through code validation & quality tools for example:
-HTML - https://validator.w3.org/#validate_by_input CSS - http://jigsaw.w3.org/css-validator/
-JavaScript - https://javascriptvalidator.net/
-- Document all errors and warnings found, make sure you document your process of fixing these errors.
-# Project criteria:
-
-
-## Usability and Visual Impact:
-- Project Purpose
-- UX design
-- Suitability for purpose
-- Navigation
-- Ease of use
-- Information Architecture
-## Layout and Visual Impact:
-- Responsive Design
-- Image Presentation
-- Colour scheme and typography
-## Code Quality:
-- Appropriate use of HTML
-- Appropriate use of CSS
-- Appropriate use of JavaScript
-## Software Development practices:
-- Directory Structure and File Naming
-- Version control
-- Readme file
-- Comments
-- Deployment implementation
-- Deployment write-up
-## Testing practices
-- Code Validation and Quality Assurance
-- Documentation of testing
+# I hope you enjoy the page!
