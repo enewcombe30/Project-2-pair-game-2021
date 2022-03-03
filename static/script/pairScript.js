@@ -40,9 +40,9 @@ const score = document.getElementById("score");
 
 // ----- modal JS sourced here https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_js_modal&stacked=h ----- //
 
-var modal = document.getElementById("how-modal");
-var howBtn = document.getElementById("how-btn");
-var span = document.getElementsByClassName("close")[0];
+let modal = document.getElementById("how-modal");
+let howBtn = document.getElementById("how-btn");
+let span = document.getElementsByClassName("close")[0];
 
 howBtn.onclick = function () {
     modal.style.display = "block";
@@ -182,13 +182,13 @@ function playHard() {
 
 // Card flipping script sourced from : https://www.youtube.com/watch?v=ZniVgo8U7ek 
 
-var easyCards = document.querySelectorAll('.memory-card-easy');
-var medCards = document.querySelectorAll('.memory-card-medium');
-var hardCards = document.querySelectorAll('.memory-card-hard');
+let easyCards = document.querySelectorAll('.memory-card-easy');
+let medCards = document.querySelectorAll('.memory-card-medium');
+let hardCards = document.querySelectorAll('.memory-card-hard');
 
-var hasFlippedCard = false;
-var lockBoard = false;
-var firstCard, secondCard;
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
 
 function flipCard() {
     if (lockBoard) return;
@@ -323,45 +323,45 @@ function shuffleHard() {
 
 // stopwatch timer sourced  https://dev.to/gspteck/create-a-stopwatch-in-javascript-2mak 
 
-var min = 0;
-var sec = 60;
-var stoptime = true;
+let min = 0;
+let sec = 60;
+let stoptime = true;
 
-var timer = document.getElementById('timer');
+const timer = document.getElementById('timer');
 
 function startTimer() {
-    if (stoptime == true) {
+    if (stoptime === true) {
         stoptime = false;
         timerCycle();
     }
 }
 
 function stopTimer() {
-    if (stoptime == false) {
+    if (stoptime === false) {
         stoptime = true;
     }
 }
 
 function timerCycle() {
-    if (stoptime == false) {
+    if (stoptime === false) {
         sec = parseInt(sec);
         min = parseInt(min);
 
         sec = sec - 1; // timer count changed from + to - .
 
-        if (sec == 0) {
+        if (sec === 0) {
 
             stopTimer();
             gameFail();
         }
-        if (min == 01) {
+        if (min === 01) {
             sec = 60;
         }
 
-        if (sec < 10 || sec == 0) {
+        if (sec < 10 || sec === 0) {
             sec = '0' + sec;
         }
-        if (min < 10 || min == 0) {
+        if (min < 10 || min === 0) {
             min = '0' + min;
         }
 
@@ -380,22 +380,22 @@ function resetTimer() {
 
 // --------- Game win and fail functions and event listeners --------- //
 
-var gameParentEasy = document.getElementById("memory-game-easy"); 
-var matchedEasy = gameParentEasy.getElementsByClassName("match");
+let gameParentEasy = document.getElementById("memory-game-easy");
+let matchedEasy = gameParentEasy.getElementsByClassName("match");
 easyCards.forEach(card => card.addEventListener('click', easyWin));
 
-var gameParentMed = document.getElementById("memory-game-medium");
-var matchedMed = gameParentMed.getElementsByClassName("match");
+let gameParentMed = document.getElementById("memory-game-medium");
+let matchedMed = gameParentMed.getElementsByClassName("match");
 medCards.forEach(card => card.addEventListener('click', medWin));
 
-var gameParentHard = document.getElementById("memory-game-hard");
-var matchedHard = gameParentHard.getElementsByClassName("match");
+let gameParentHard = document.getElementById("memory-game-hard");
+let matchedHard = gameParentHard.getElementsByClassName("match");
 hardCards.forEach(card => card.addEventListener('click', hardWin));
 
 function easyWin() {
     console.log(matchedEasy.length);
 
-    if (matchedEasy.length == 8) {
+    if (matchedEasy.length === 8) {
         origValues();
         stopTimer();
         playSuccessSound();
@@ -410,7 +410,7 @@ function easyWin() {
 function medWin() {
     console.log(matchedMed.length);
 
-    if (matchedMed.length == 12) {
+    if (matchedMed.length === 12) {
         origValues();
         stopTimer();
         playSuccessSound();
@@ -425,7 +425,7 @@ function medWin() {
 function hardWin() {
     console.log(matchedHard.length);
 
-    if (matchedHard.length == 20) {
+    if (matchedHard.length === 20) {
         origValues();
         stopTimer();
         playSuccessSound();
@@ -438,7 +438,7 @@ function hardWin() {
 }
 
 function gameFail() {
-    if (sec == 0) {
+    if (sec === 0) {
         origValues();
         stopTimer();
         resetTimer();
