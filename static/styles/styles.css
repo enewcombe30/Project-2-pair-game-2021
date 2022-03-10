@@ -262,6 +262,12 @@ button:focus {
     bottom: 5%;
 }
 
+/* ---------- Card Images ---------- */
+
+.tikiAngry {
+    background-image: url('../images/Game-images/tikiAngry.jpg');
+}
+
 /* ---------- card sizing by difficulty ---------- */
 
 .memory-card-easy {
