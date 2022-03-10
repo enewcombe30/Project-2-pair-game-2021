@@ -270,12 +270,16 @@ button:focus {
     height: 30%;
     margin: 1%;
     position: relative;
-    transform: scale(1);
     -webkit-transform: scale(1);
-    transform-style: preserve-3d;
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
     -webkit-transform-style: preserve-3d;
-    transition: transform .5s;
+    transform-style: preserve-3d;
     -webkit-transition: transform .5s;
+    -moz-transition: transform .5s;
+    -o-transition: transform .5s;
+    transition: transform .5s;
 }
 
 .memory-card-medium {
@@ -283,12 +287,16 @@ button:focus {
     height: 25%;
     margin: 1%;
     position: relative;
-    transform: scale(1);
     -webkit-transform: scale(1);
-    transform-style: preserve-3d;
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
     -webkit-transform-style: preserve-3d;
-    transition: transform .5s;
+    transform-style: preserve-3d;
     -webkit-transition: transform .5s;
+    -moz-transition: transform .5s;
+    -o-transition: transform .5s;
+    transition: transform .5s;
 }
 
 .memory-card-hard {
@@ -296,33 +304,45 @@ button:focus {
     height: 20%;
     margin: 1%;
     position: relative;
-    transform: scale(1);
     -webkit-transform: scale(1);
-    transform-style: preserve-3d;
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
     -webkit-transform-style: preserve-3d;
-    transition: transform .5s;
+    transform-style: preserve-3d;
     -webkit-transition: transform .5s;
+    -moz-transition: transform .5s;
+    -o-transition: transform .5s;
+    transition: transform .5s;
 }
 
 /* ---------- Card Flip and active CSS ---------- */
 
-.memory-card-easy:active,
-.memory-card-medium:active,
-.memory-card-hard:active {
-    transform: scale(.97);
-    -webkit-transform: scale(.97); /*Added for use on iPhone and Safari*/
-    transition: transform .2s;
-    -webkit-transition: transform .2s;
-}
+    .memory-card-easy:active,
+    .memory-card-medium:active,
+    .memory-card-hard:active {
+        transform: scale(.97);
+        -webkit-transform: scale(.97); /*Added for use on iPhone and Safari*/
+        -moz-transform: scale(.97);
+        -o-transform: scale(.97);
+        transition: transform .2s;
+        -webkit-transition: transform .2s;
+        -moz-transition: transform .2s;
+        -o-transition: transform .2s;
+    }
 
-.memory-card-easy.flip,
-.memory-card-medium.flip,
-.memory-card-hard.flip {
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-    transition: transform .2s;
-    -webkit-transition: transform .2s;
-}
+    .memory-card-easy.flip,
+    .memory-card-medium.flip,
+    .memory-card-hard.flip {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transition: transform .2s;
+        -webkit-transition: transform .2s;
+        -moz-transition: transform .2s;
+        -o-transition: transform .2s;
+    }
 
 .front-face, .back-face {
     width: 100%;
@@ -332,11 +352,14 @@ button:focus {
     background: lightblue;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
 }
 
 .front-face {
     transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg); 
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
 }
 
 #hide,
