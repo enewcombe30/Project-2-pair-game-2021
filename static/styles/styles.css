@@ -19,7 +19,7 @@ h1{
 }
 
 .background {
-    /*background-image: url('../images/Game-images/leaves.jpg');*/
+    background-image: url('../images/Game-images/leaves.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -160,7 +160,6 @@ button {
     box-shadow: rgba(0,0,0,0.4) 5px 5px 5px 5px;
 }
 button:hover,
-
 button:focus {
     color: #ccc9c9;
     text-decoration: none;
@@ -356,6 +355,7 @@ button:focus {
 }
 
 .front-face {
+    display: block;
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
