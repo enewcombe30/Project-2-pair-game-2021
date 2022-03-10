@@ -19,7 +19,7 @@ h1{
 }
 
 .background {
-    background-image: url('../images/Game-images/leaves.jpg');
+    /*background-image: url('../images/Game-images/leaves.jpg');*/
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
