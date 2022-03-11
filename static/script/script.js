@@ -439,6 +439,7 @@ function hardWin() {
 
 function gameFail() {
     if (sec === 0) {
+        lockBoard = true;
         origValues();
         stopTimer();
         resetTimer();
